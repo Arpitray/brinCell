@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skull
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+</head>
+<body>    
+<div class="layout">
+  <div class="box ">
+    <div class ="text" >Left hemisphere</div>
+  </div>
+<model-viewer
+  id="brainModel"
+  src="assets/brain_project/scene.gltf"
+  camera-controls
+  disable-zoom
+  disable-pan
+  style="width: 60vw; height: 60vh;"
+>
+  <!-- Hotspots for each part -->
+  <button class="hotspot" slot="hotspot-frontal"
+          data-position='-0.1 1 -0.5 ' data-normal="1 1 1"
+          onclick="highlightPart(this, 'frontal')">
+    <div class="label">Frontal</div>
+  </button>
+
+  <button class="hotspot" slot="hotspot-parietal"
+          data-position="0 0.8 0.7" data-normal="0 0 0"
+          onclick="highlightPart(this, 'parietal')">
+    <div class="label">Parietal</div>
+  </button>
+
+  <button class="hotspot" slot="hotspot-temporal"
+          data-position="-0.5 0.5 -0.07" data-normal="0 0 0"
+          onclick="highlightPart(this, 'temporal')">
+    <div class="label">Temporal</div>
+  </button>
+
+  <button class="hotspot" slot="hotspot-occipital"
+          data-position="-0.1 0.5 -0.7 " data-normal="0 0 0"
+          onclick="highlightPart(this, 'occipital')">
+    <div class="label">Occipital</div>
+  </button>
+
+  <button class="hotspot" slot="hotspot-cerebellum"
+          data-position="0.1 0.3 -0.5" data-normal="0 0 0"
+          onclick="highlightPart(this, 'cerebellum')">
+    <div class="label">Cerebellum</div>
+  </button>
+    <button class="hotspot" slot="hotspot-stem"
+          data-position=" -0.0.5 0.1 0.7" data-normal="0 0 0"
+          onclick="highlightPart(this, 'stem')">
+    <div class="label">Brain stem</div>
+    
+  </button>
+  
+</model-viewer>
+  </div>
+  <div class="brain-controls">
+  <button onclick="highlightViaButton('frontal')">Frontal Lobe</button>
+  <button onclick="highlightViaButton('parietal')">Parietal Lobe</button>
+  <button onclick="highlightViaButton('temporal')">Temporal Lobe</button>
+  <button onclick="highlightViaButton('occipital')">Occipital Lobe</button>
+  <button onclick="highlightViaButton('cerebellum')">Cerebellum</button>
+  <button onclick="highlightViaButton('stem')">Brain stem</button>
+  
+</div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

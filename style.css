@@ -1,0 +1,118 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #000000;
+background-image: url("https://www.transparenttextures.com/patterns/fabric-1-light.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+height:100%;
+width:100%;
+}
+.skull-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  pointer-events: none; /* Prevents clicks interfering with other elements */
+}
+
+.layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  gap: 2vw; /* Adds space between items responsively */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.box {
+  width: 70vw;
+  height: 80vh;
+    background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+ backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  color: white;
+  margin:0px 20px;
+  cursor:pointer;
+}
+
+model-viewer.skull {
+  width: 30vw;
+  height: 60vh;
+  max-width: 100%;
+  pointer-events: auto;
+  filter: brightness(0.79) contrast(2) saturate(1);
+}
+
+.box:hover {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+.box .text
+{
+  height:15vh;
+  width:100%;
+  text-align: center;
+  padding:25px 15px;
+  font-size: 1.4em;
+  color: rgb(95, 179, 102);
+}
+.hotspot {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.label {
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.label.active {
+  border-color: #1cff95;
+  box-shadow: 0 0 10px #00ff88;
+  background: rgba(0, 255, 136, 0.2);
+}
+
+.brain-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.brain-controls button {
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  background: #444;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.brain-controls button:hover {
+  background: #666;
+}
+  
