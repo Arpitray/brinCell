@@ -6,13 +6,24 @@
     <title>Skull
     </title>
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<!-- Latest Model Viewer as of 2025-06 -->
+<script type="module" src="https://unpkg.com/@google/model-viewer@3/dist/model-viewer.min.js"></script>
 
 </head>
 <body>    
+  <div class="nav">
+    <span class="head">
+      Brain section
+    </span>
+  </div>
 <div class="layout">
   <div class="box ">
-    <div class ="text" >Left hemisphere</div>
+    <div class ="text" >
+      <h2>Brain</h2>
+      <div class="innerText">
+        Just click any of the cerebral anatomy buttons and we'll take you straight to an interactive 3D view of that brain part. It's a fun and easy way to learn — one click, and you're there!
+      </div>
+    </div>
   </div>
 <model-viewer
   id="brainModel"
@@ -20,31 +31,30 @@
   camera-controls
   disable-zoom
   disable-pan
-  style="width: 60vw; height: 60vh;"
 >
   <!-- Hotspots for each part -->
   <button class="hotspot" slot="hotspot-frontal"
-          data-position='-0.1 1 -0.5 ' data-normal="1 1 1"
+          data-position='-0.0 1 -0.4 ' data-normal="0 0 0 "
           onclick="highlightPart(this, 'frontal')">
-    <div class="label">Frontal</div>
+    <div class="label">Frontal Lobe</div>
   </button>
 
   <button class="hotspot" slot="hotspot-parietal"
           data-position="0 0.8 0.7" data-normal="0 0 0"
           onclick="highlightPart(this, 'parietal')">
-    <div class="label">Parietal</div>
+    <div class="label">Parietal Lobe</div>
   </button>
 
   <button class="hotspot" slot="hotspot-temporal"
           data-position="-0.5 0.5 -0.07" data-normal="0 0 0"
           onclick="highlightPart(this, 'temporal')">
-    <div class="label">Temporal</div>
+    <div class="label">Temporal Lobe</div>
   </button>
 
   <button class="hotspot" slot="hotspot-occipital"
           data-position="-0.1 0.5 -0.7 " data-normal="0 0 0"
           onclick="highlightPart(this, 'occipital')">
-    <div class="label">Occipital</div>
+    <div class="label">Occipital Lobe</div>
   </button>
 
   <button class="hotspot" slot="hotspot-cerebellum"
@@ -61,18 +71,189 @@
   
 </model-viewer>
   </div>
-  <div class="brain-controls">
-  <button onclick="highlightViaButton('frontal')">Frontal Lobe</button>
-  <button onclick="highlightViaButton('parietal')">Parietal Lobe</button>
-  <button onclick="highlightViaButton('temporal')">Temporal Lobe</button>
-  <button onclick="highlightViaButton('occipital')">Occipital Lobe</button>
-  <button onclick="highlightViaButton('cerebellum')">Cerebellum</button>
-  <button onclick="highlightViaButton('stem')">Brain stem</button>
-  
+<div class="brain-controls">
+  <h2>Cerebral Anatomy</h2>
+  <button class="lobe-button" data-lobe="frontal">Frontal Lobe</button>
+  <button class="lobe-button" data-lobe="parietal">Parietal Lobe</button>
+  <button class="lobe-button" data-lobe="temporal">Temporal Lobe</button>
+  <button class="lobe-button" data-lobe="occipital">Occipital Lobe</button>
+  <button class="lobe-button" data-lobe="cerebellum">Cerebellum</button>
+  <button class="lobe-button" data-lobe="stem">Brain stem</button>
+  <button id="resetCameraBtn">Reset Camera</button>
 </div>
+<div class="heading">
+  <h1>Other importants parts</h1>
+</div>
+<div class="card-grid">
+  <div class="card">
+    <img src="assets/thalamus-damage.avif" alt="">
+    <div><b>Thalamus</b> is a relay station for sensory and motor signals to the cerebrum.
+</div>
+  </div>
+  <div class="card">
+    <img src="assets/hypothalamus-damage-1.avif" alt="">
+    <div><b>Hypothalamus</b> Regulates body temperature, thirst, hunger, and hormonal activity.
+</div>
+  </div>
+  <div class="card">
+    <img src="assets/amygdala.jpg" alt="">
+    <div><b>Amygdala</b> is Involved in emotion processing, especially fear and anger.
+
+
+</div>
+  </div>
+  <div class="card big">
+    <img src="assets/hippocampus.jpg" alt="" >
+    <div><b>Hippocampus</b> is Critical for memory formation and learning.
+</div>
+  </div>
+  <div class="card big">
+    <img src="assets/basal-ganglia-nuclei-location-human-600nw-2218792287.webp" alt="" style ="height:250">
+    <div><b>thalamus</b> is a relay station for sensory and motor signals to the cerebrum.
+</div>
+  </div>
+   <div class="card big">
+    <img src="assets/500px-Brain_anatomy.jpeg" alt="" style ="height:250">
+    <div><b>Cerebrum</b> is Divided into lobes (frontal, parietal, temporal, occipital).
+      Responsible for thinking, learning, memory, emotions, and voluntary movements.
 
 
 
+
+</div>
+  </div>
+</div>
+<div class="nav2">
+    <span class="head2">
+      Heart section
+    </span>
+  </div>
+<div class="layout">
+<model-viewer  id="heart-model"
+  src="assets/heart-_whole/scene.gltf"
+  camera-controls
+  disable-zoom
+  disable-pan
+>
+ <!-- Main Chambers -->
+<button slot="hotspot" class="heart-hotspot"
+        data-position="8 8 8" data-normal="0 1 0"
+        data-part="right-atrium" onClick="highlightHeartPart(this, 'right-atrium')">
+  <div class="heart-label">Right Atrium</div>
+</button>
+
+<button slot="hotspot" class="heart-hotspot"
+        data-position="-1 0.8 -0.3" data-normal="0 0 1"
+        data-part="left-atrium" onClick="highlightHeartPart(this, 'left-atrium')">
+  <div class="heart-label">Left Atrium</div>
+</button>
+
+<button slot="hotspot" class="heart-hotspot"
+        data-position="0.3 0.5 -0.2" data-normal="0 0 1"
+        data-part="right-ventricle" onClick="highlightHeartPart(this, 'right-ventricle')">
+  <div class="heart-label">Right Ventricle</div>
+</button>
+
+<button slot="hotspot" class="heart-hotspot"
+        data-position="-0.3 0.5 -0.2" data-normal="0 0 1"
+        data-part="left-ventricle" onClick="highlightHeartPart(this, 'left-ventricle')">
+  <div class="heart-label">Left Ventricle</div>
+</button>
+
+<!-- Valves -->
+<button slot="hotspot" class="heart-hotspot"
+        data-position="0.25 0.8 -0.25" data-normal="0 0 1"
+        data-part="tricuspid-valve" onClick="highlightHeartPart(this, 'tricuspid-valve')">
+  <div class="heart-label">Tricuspid Valve</div>
+</button>
+
+<button slot="hotspot" class="heart-hotspot"
+        data-position="0.15 1.0 -0.25" data-normal="0 0 1"
+        data-part="pulmonary-valve" onClick="highlightHeartPart(this, 'pulmonary-valve')">
+  <div class="heart-label">Pulmonary Valve</div>
+</button>
+
+<button slot="hotspot" class="heart-hotspot"
+        data-position="-0.25 0.8 -0.25" data-normal="0 0 1"
+        data-part="mitral-valve" onClick="highlightHeartPart(this, 'mitral-valve')">
+  <div class="heart-label">Mitral Valve</div>
+</button>
+
+<button slot="hotspot" class="heart-hotspot"
+        data-position="-0.15 1.0 -0.25" data-normal="0 0 1"
+        data-part="aortic-valve" onClick="highlightHeartPart(this, 'aortic-valve')">
+  <div class="heart-label">Aortic Valve</div>
+</button>
+
+<!-- Major Vessels -->
+<button slot="hotspot" class="heart-hotspot"
+        data-position="0 1.5 -0.1" data-normal="0 0 1"
+        data-part="aorta" onClick="highlightHeartPart(this, 'aorta')">
+  <div class="heart-label">Aorta</div>
+</button>
+
+<button slot="hotspot" class="heart-hotspot"
+        data-position="0.1 1.3 -0.1" data-normal="0 0 1"
+        data-part="pulmonary-artery" onClick="highlightHeartPart(this, 'pulmonary-artery')">
+  <div class="heart-label">Pulmonary Artery</div>
+</button>
+
+<button slot="hotspot" class="heart-hotspot"
+        data-position="-0.1 1.1 -0.1" data-normal="0 0 1"
+        data-part="pulmonary-veins" onClick="highlightHeartPart(this, 'pulmonary-veins')">
+  <div class="heart-label">Pulmonary Veins</div>
+</button>
+
+<!-- Other Structures -->
+<button slot="hotspot" class="heart-hotspot"
+        data-position="0 0.8 -0.2" data-normal="0 0 1"
+        data-part="septum" onClick="highlightHeartPart(this, 'septum')">
+  <div class="heart-label">Septum</div>
+</button>
+
+<button slot="hotspot" class="heart-hotspot"
+        data-position="0.3 1.3 -0.25" data-normal="0 0 1"
+        data-part="sa-node" onClick="highlightHeartPart(this, 'sa-node')">
+  <div class="heart-label">SA Node</div>
+</button>
+
+<button slot="hotspot" class="heart-hotspot"
+        data-position="0.25 1.0 -0.25" data-normal="0 0 1"
+        data-part="av-node" onClick="highlightHeartPart(this, 'av-node')">
+  <div class="heart-label">AV Node</div>
+</button>
+
+
+
+</model-viewer>
+
+  <div class="box2 ">
+    <div class ="text2" >
+      <h2>Heart</h2>
+      <div class="innerText2">
+        Just click any of the Heart anatomy buttons and we'll take you straight to an interactive 3D view of that Heart part. It's a fun and easy way to learn — one click, and you're there!
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="heart-buttons">
+  <button data-part="right-atrium">Right Atrium</button>
+  <button data-part="left-atrium">Left Atrium</button>
+  <button data-part="right-ventricle">Right Ventricle</button>
+  <button data-part="left-ventricle">Left Ventricle</button>
+  <button data-part="tricuspid-valve">Tricuspid Valve</button>
+  <button data-part="pulmonary-valve">Pulmonary Valve</button>
+  <button data-part="mitral-valve">Mitral Valve</button>
+  <button data-part="aortic-valve">Aortic Valve</button>
+  <button data-part="aorta">Aorta</button>
+  <button data-part="pulmonary-artery">Pulmonary Artery</button>
+  <button data-part="pulmonary-veins">Pulmonary Veins</button>
+  <button data-part="septum">Septum</button>
+  <button data-part="sa-node">SA Node</button>
+  <button data-part="av-node">AV Node</button>
+    <button id="reset-camera">Reset Camera</button>
+
+</div>
     <script src="script.js"></script>
 </body>
 </html>
