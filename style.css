@@ -20,6 +20,8 @@ body {
   /* overflow: hidden; */
   overflow-x: hidden;
   font-family: "Walter Turncoat", cursive;
+    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=2853);
+
 }
 
 @keyframes scrollGrid {
@@ -85,6 +87,7 @@ body {
   /* To match the vintage “cut” design, set overflow hidden */
   overflow: hidden;
   /* border-radius: 10px; */
+  border-radius: 15px;
 }
 
 
@@ -101,7 +104,8 @@ model-viewer {
    background-color: #f0f4ef;
   background-image: radial-gradient(#00000022 1px, transparent 1px);
   background-size: 40px 40px;
-  border:2px solid black
+  border:2px solid black;
+  border-radius: 15px;
 }
 
 .box:hover {
@@ -158,7 +162,7 @@ model-viewer {
   align-items: center;
   width:100%;
   background-color:#ede0d4;
-  background-image: radial-gradient(#00000022 1px, transparent 1px);
+  background-image: radial-gradient(#252422 1px, transparent 1px);
   background-size: 40px 40px;
   flex-wrap: wrap;
   border:2px solid black;
@@ -307,6 +311,8 @@ font-family: "Alegreya Sans SC", sans-serif;
   border-radius: 8px;
   padding: 20px;
   text-align: center;
+    background-image: radial-gradient(#bcb8b1 1px, transparent 1px);
+  background-size: 40px 40px;
 
   /* Optional hover effect */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -382,6 +388,7 @@ font-family: "Alegreya Sans SC", sans-serif;
      Adjust as needed, e.g., if your layout is responsive. */
   width: 75vh;
   height: 50vh;
+  border-radius: 15px;
 
   /* Optional: Matches the sample image vibe precisely */
   position: relative;
@@ -437,6 +444,8 @@ model-viewer #heart-model
     background: #f1faee;
     padding: 15px;
     height:13rem;
+      background-image: radial-gradient(#8fc0a9 1px, transparent 1px);
+  background-size: 70px 70px;
    
 }
  .heart-hotspot {
