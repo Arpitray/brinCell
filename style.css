@@ -428,13 +428,39 @@ model-viewer #heart-model
 }
 #heart-buttons
 {
+  position:relative;
   margin-top:2%;
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+     text-align: center;
+    background: #f1faee;
+    padding: 15px;
+    height:13rem;
+   
 }
 .heart-hotspot {
-  display: none;
+  display: none; /* All hotspots hidden by default */
 }
+
 .heart-hotspot.visible {
-  display: block;
+  display: block !important;
+}
+#heart-buttons h2{
+    text-align: center;
+  position:absolute;
+  top:10px;
+
+  /* display:inline; */
+}
+#heart-buttons button{
+  height:3rem;
+  margin-top:2.4%;
+  border-radius: 8px;
+}
+button:hover {
+  box-shadow: 1px 1px 0px #000;
+  transform: translate(2px, 2px);
 }
 
 

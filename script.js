@@ -138,20 +138,16 @@ const heartModel = document.querySelector('#heart-model');
 
 // Camera angles/distances for every heart part
 const heartPartPositions = {
-  "right-atrium": "250deg 70deg 2.2m",
-  "left-atrium": "-30deg 60deg 1.5m",
-  "right-ventricle": "30deg 55deg 1.5m",
-  "left-ventricle": "-30deg 55deg 1.5m",
-  "tricuspid-valve": "25deg 65deg 1.5m",
-  "pulmonary-valve": "15deg 55deg 1.5m",
-  "mitral-valve": "-25deg 65deg 1.5m",
-  "aortic-valve": "-15deg 55deg 1.5m",
-  "aorta": "0deg 30deg 2m",
-  "pulmonary-artery": "0deg 40deg 1.5m",
-  "pulmonary-veins": "0deg 60deg 1.5m",
-  "septum": "0deg 90deg 1.5m",
-  "sa-node": "45deg 80deg 1.5m",
-  "av-node": "30deg 80deg 1.5m"
+  "right-atrium": "275deg 70deg 2.2m",
+  "left-atrium": "200deg 60deg 1.5m",
+  "right-ventricle": "30deg 120deg 1.5m",
+  "left-ventricle": "70deg 115deg 1.5m",
+  "Left anterior descending coronary artery": "25deg 110deg 1.5m",
+  "pulmonary-trunk": "15deg 55deg 1.5m",
+  "aorta": "-20deg 20deg 2m",
+  "pulmonary-artery": "220deg 40deg 1.5m",
+   "Inferior Vena Cava": "275deg 120deg 2.2m",
+
 };
 
 function highlightHeartPart(button, part) {
@@ -205,25 +201,72 @@ const heartResetButton = document.querySelector('#reset-camera');
 heartResetButton.addEventListener('click', () => {
   heartModelViewer.setAttribute('camera-orbit', initialHeartOrbit);
 });
-// External Buttons Click
+// Hide all hotspots
+// Hide all hotspots
+// When external buttons are clicked
 const externalButtons = document.querySelectorAll('#heart-buttons button');
 externalButtons.forEach(button => {
   button.addEventListener('click', (e) => {
     const part = e.currentTarget.getAttribute('data-part');
 
-    // Hide all hotspots first
+    // Move camera
+    if (heartPartPositions[part]) {
+      highlightHeartPart(null, part);
+    }
+
+    // Hide all hotspots
     document.querySelectorAll('.heart-hotspot')
       .forEach(hotspot => hotspot.classList.remove('visible'));
 
-    // Find and show the specific hotspot
+    // SHOW the specific hotspot
     const targetHotspot = document.querySelector(`.heart-hotspot[data-part="${part}"]`);
     if (targetHotspot) {
       targetHotspot.classList.add('visible');
     }
   });
 });
-// Get all hotspot
+const heartPartInfo = {
+  "right-atrium": "Right Atrium: Collects deoxygenated blood from the body via the vena cavae.\nActs as a reservoir before passing blood to the right ventricle.\nHas thin walls suited for low pressure.\nPlays a vital role in initiating pulmonary circulation.",
+  "left-atrium": "Left Atrium: Receives oxygen-rich blood from the pulmonary veins.\nActs as a chamber to fill the left ventricle.\nHas slightly thicker walls than the right atrium.\nSupports systemic blood flow to the rest of the body.",
+  "right-ventricle": "Right Ventricle: Pumps deoxygenated blood to the lungs via the pulmonary artery.\nHas moderately thick walls for low-pressure pulmonary circulation.\nWorks with valves to maintain unidirectional blood flow.\nSupports gas exchange in the lungs.",
+  "left-ventricle": "Left Ventricle: Pumping chamber for oxygen-rich blood to the body.\nHas the thickest walls due to high systemic pressure.\nWorks with valves for efficient and controlled blood flow.\nEssential for providing oxygen and nutrients to all organs.",
+  "Left anterior descending coronary artery": "LAD Artery: Supplies oxygen-rich blood to the front of the heart.\nTravels down the interventricular groove towards the apex.\nCommon site for blockages leading to heart attacks.\nVital for perfusion of the left ventricle and septum.",
+  "pulmonary-trunk": "Pulmonary Trunk: Carries deoxygenated blood from the right ventricle.\nDivides into right and left pulmonary arteries.\nSupports gas exchange by sending blood to the lungs.\nActs as the main conduit of the pulmonary circuit.",
+  "aorta": "Aorta: Main artery transporting oxygen-rich blood from the left ventricle.\nHas strong, elastic walls to tolerate high systemic pressure.\nBranches extensively to supply the entire body.\nEssential for sustaining systemic circulation.",
+  "pulmonary-artery": "Right Pulmonary Artery: Transports deoxygenated blood from the heart to the right lung.\nConnects the right ventricle to the pulmonary capillaries.\nSupports gas exchange and reoxygenation of blood.\nPlays a vital role in the pulmonary circulation pathway.",
+  "Inferior Vena Cava": "Inferior Vena Cava: Returns deoxygenated blood from the lower body to the right atrium.\nTravels upward along the spine towards the heart.\nHas a wide diameter for high-volume venous return.\nSupports right atrial filling and overall cardiac output."
+};
 
-// All your hotspots now have their position set properly.
+const heartDisplayDiv = document.querySelector('.innerText2');
+let heartTypingQueue = [];
+
+document.querySelectorAll('[data-part]').forEach(button => {
+  button.addEventListener('click', e => {
+    const part = e.currentTarget.getAttribute('data-part');
+    if (heartPartInfo[part]) {
+      cancelHeartTyping();
+      runHeartTyping(heartPartInfo[part]);
+    }
+  });
+});
+
+function cancelHeartTyping() {
+  heartTypingQueue.forEach(timeout => clearTimeout(timeout));
+  heartTypingQueue = [];
+}
+
+function runHeartTyping(text) {
+  heartDisplayDiv.innerHTML = ""; 
+  let index = 0;
+
+  function addCharacter() {
+    if (index < text.length) {
+      heartDisplayDiv.innerHTML += text[index];
+      index++;
+      heartTypingQueue.push(setTimeout(addCharacter, 20));
+    }
+  }
+  addCharacter();
+}
 
 

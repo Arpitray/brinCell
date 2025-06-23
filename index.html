@@ -130,100 +130,52 @@
   </div>
 <div class="layout">
 <model-viewer  id="heart-model"
-  src="assets/heart-_whole/scene.gltf"
+  src="assets/heart-_whole/untitled.glb"
   camera-controls
   disable-zoom
   disable-pan
 >
- <!-- Main Chambers -->
-<button slot="hotspot" class="heart-hotspot"
-        data-position="8 8 8" data-normal="0 1 0"
-        data-part="right-atrium" onClick="highlightHeartPart(this, 'right-atrium')">
-  <div class="heart-label">Right Atrium</div>
+<!-- Main Chambers -->
+<button class="heart-hotspot" slot="hotspot-right-atrium" data-part="right-atrium"
+        data-position="-3 0.4 -0.4 " data-normal="0 1 0" onClick="highlightHeartPart(this, 'right-atrium')">
+    <div class="label">Right Atrium</div>
 </button>
-
-<button slot="hotspot" class="heart-hotspot"
-        data-position="-1 0.8 -0.3" data-normal="0 0 1"
-        data-part="left-atrium" onClick="highlightHeartPart(this, 'left-atrium')">
-  <div class="heart-label">Left Atrium</div>
+<button class="heart-hotspot" slot="hotspot-left-atrium" data-part="left-atrium"
+        data-position="-0.5 0.8 -1" data-normal="0 1 0" onClick="highlightHeartPart(this, 'left-atrium')">
+    <div class="label">Left Atrium</div>
 </button>
-
-<button slot="hotspot" class="heart-hotspot"
-        data-position="0.3 0.5 -0.2" data-normal="0 0 1"
-        data-part="right-ventricle" onClick="highlightHeartPart(this, 'right-ventricle')">
-  <div class="heart-label">Right Ventricle</div>
+<button class="heart-hotspot" slot="hotspot-right-ventricle" data-part="right-ventricle"
+        data-position="-1.3 -0.8 -0.7" data-normal="0 0 1" onClick="highlightHeartPart(this, 'right-ventricle')">
+    <div class="label">Right Ventricle</div>
 </button>
-
-<button slot="hotspot" class="heart-hotspot"
-        data-position="-0.3 0.5 -0.2" data-normal="0 0 1"
-        data-part="left-ventricle" onClick="highlightHeartPart(this, 'left-ventricle')">
-  <div class="heart-label">Left Ventricle</div>
+<button class="heart-hotspot" slot="hotspot-left-ventricle" data-part="left-ventricle"
+        data-position="0.5 -1.1 -0.2" data-normal="0 0 1" onClick="highlightHeartPart(this, 'left-ventricle')">
+    <div class="label">Left Ventricle</div>
 </button>
 
 <!-- Valves -->
-<button slot="hotspot" class="heart-hotspot"
-        data-position="0.25 0.8 -0.25" data-normal="0 0 1"
-        data-part="tricuspid-valve" onClick="highlightHeartPart(this, 'tricuspid-valve')">
-  <div class="heart-label">Tricuspid Valve</div>
+<button class="heart-hotspot" slot="hotspot-Left anterior descending coronary artery" data-part="Left anterior descending coronary artery"
+        data-position="0.25 -1 -0.25" data-normal="0 0 1" onClick="highlightHeartPart(this, 'tricuspid-valve')">
+    <div class="label">Left anterior descending coronary artery</div>
 </button>
-
-<button slot="hotspot" class="heart-hotspot"
-        data-position="0.15 1.0 -0.25" data-normal="0 0 1"
-        data-part="pulmonary-valve" onClick="highlightHeartPart(this, 'pulmonary-valve')">
-  <div class="heart-label">Pulmonary Valve</div>
-</button>
-
-<button slot="hotspot" class="heart-hotspot"
-        data-position="-0.25 0.8 -0.25" data-normal="0 0 1"
-        data-part="mitral-valve" onClick="highlightHeartPart(this, 'mitral-valve')">
-  <div class="heart-label">Mitral Valve</div>
-</button>
-
-<button slot="hotspot" class="heart-hotspot"
-        data-position="-0.15 1.0 -0.25" data-normal="0 0 1"
-        data-part="aortic-valve" onClick="highlightHeartPart(this, 'aortic-valve')">
-  <div class="heart-label">Aortic Valve</div>
+<button class="heart-hotspot" slot="hotspot-pulmonary-trunk" data-part="pulmonary-trunk"
+        data-position="-0.4 1.0 -0.25" data-normal="0 0 1" onClick="highlightHeartPart(this, 'pulmonary-valve')">
+    <div class="label">Pulmonary trunk</div>
 </button>
 
 <!-- Major Vessels -->
-<button slot="hotspot" class="heart-hotspot"
-        data-position="0 1.5 -0.1" data-normal="0 0 1"
-        data-part="aorta" onClick="highlightHeartPart(this, 'aorta')">
-  <div class="heart-label">Aorta</div>
+<button class="heart-hotspot" slot="hotspot-aorta" data-part="aorta"
+        data-position="-1.2 2.3 -0.1" data-normal="0 0 1" onClick="highlightHeartPart(this, 'aorta')">
+    <div class="label">Aorta</div>
 </button>
-
-<button slot="hotspot" class="heart-hotspot"
-        data-position="0.1 1.3 -0.1" data-normal="0 0 1"
-        data-part="pulmonary-artery" onClick="highlightHeartPart(this, 'pulmonary-artery')">
-  <div class="heart-label">Pulmonary Artery</div>
+<button class="heart-hotspot" slot="hotspot-pulmonary-artery" data-part="pulmonary-artery"
+        data-position="-1.5 1.3 -1.2" data-normal="0 0 0" onClick="highlightHeartPart(this, 'pulmonary-artery')">
+    <div class="label"> Right Pulmonary Artery</div>
 </button>
-
-<button slot="hotspot" class="heart-hotspot"
-        data-position="-0.1 1.1 -0.1" data-normal="0 0 1"
-        data-part="pulmonary-veins" onClick="highlightHeartPart(this, 'pulmonary-veins')">
-  <div class="heart-label">Pulmonary Veins</div>
+<button class="heart-hotspot" slot="hotspot-Inferior Vena Cava" data-part="Inferior Vena Cava"
+        data-position="-2 -1.4 -1.4" data-normal="0 0 0" onClick="highlightHeartPart(this, 'Inferior Vena Cava')">
+    <div class="label"> Inferior Vena Cava</div>
 </button>
-
-<!-- Other Structures -->
-<button slot="hotspot" class="heart-hotspot"
-        data-position="0 0.8 -0.2" data-normal="0 0 1"
-        data-part="septum" onClick="highlightHeartPart(this, 'septum')">
-  <div class="heart-label">Septum</div>
-</button>
-
-<button slot="hotspot" class="heart-hotspot"
-        data-position="0.3 1.3 -0.25" data-normal="0 0 1"
-        data-part="sa-node" onClick="highlightHeartPart(this, 'sa-node')">
-  <div class="heart-label">SA Node</div>
-</button>
-
-<button slot="hotspot" class="heart-hotspot"
-        data-position="0.25 1.0 -0.25" data-normal="0 0 1"
-        data-part="av-node" onClick="highlightHeartPart(this, 'av-node')">
-  <div class="heart-label">AV Node</div>
-</button>
-
-
 
 </model-viewer>
 
@@ -237,22 +189,17 @@
   </div>
   </div>
   <div id="heart-buttons">
+    <h2>External Cardiac Anatomy</h2>
   <button data-part="right-atrium">Right Atrium</button>
   <button data-part="left-atrium">Left Atrium</button>
   <button data-part="right-ventricle">Right Ventricle</button>
   <button data-part="left-ventricle">Left Ventricle</button>
-  <button data-part="tricuspid-valve">Tricuspid Valve</button>
-  <button data-part="pulmonary-valve">Pulmonary Valve</button>
-  <button data-part="mitral-valve">Mitral Valve</button>
-  <button data-part="aortic-valve">Aortic Valve</button>
+  <button data-part="Left anterior descending coronary artery">Left anterior descending coronary artery</button>
+  <button data-part="pulmonary-trunk">Pulmonary trunk</button>
   <button data-part="aorta">Aorta</button>
-  <button data-part="pulmonary-artery">Pulmonary Artery</button>
-  <button data-part="pulmonary-veins">Pulmonary Veins</button>
-  <button data-part="septum">Septum</button>
-  <button data-part="sa-node">SA Node</button>
-  <button data-part="av-node">AV Node</button>
+  <button data-part="pulmonary-artery">Right Pulmonary Artery</button>
+  <button data-part="Inferior Vena Cava">Inferior Vena Cava</button>
     <button id="reset-camera">Reset Camera</button>
-
 </div>
     <script src="script.js"></script>
 </body>
