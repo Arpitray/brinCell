@@ -147,6 +147,7 @@ const heartPartPositions = {
   "aorta": "-20deg 20deg 2m",
   "pulmonary-artery": "220deg 40deg 1.5m",
    "Inferior Vena Cava": "275deg 120deg 2.2m",
+   "superior Vena Cava": "290deg 45deg 2.2m",
 
 };
 

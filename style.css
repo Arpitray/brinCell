@@ -429,7 +429,7 @@ model-viewer #heart-model
 #heart-buttons
 {
   position:relative;
-  margin-top:2%;
+  margin-top:1%;
   display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -463,6 +463,11 @@ button:hover {
   box-shadow: 1px 1px 0px #000;
   transform: translate(2px, 2px);
 }
-
+.heading2
+{
+  width:100%;
+  text-align: center;
+  color:#e9ecef;
+}
 
   
