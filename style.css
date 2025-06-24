@@ -477,20 +477,20 @@ button:hover {
    {
     position:absolute;
     left: 5%;
-    top:65%;
+    top:160%;
    }
     .liner2
    {
     position:absolute;
     left: 5%;
-    top:75%;
+    top:170%;
     gap:10px;
    }
    .last
    {
       position:absolute;
     left: 14%;
-    top:84%;
+    top:179%;
     gap:10px;
    }
    .liner-heart1
@@ -517,3 +517,140 @@ button:hover {
     right: 5%;
     top:265%;
    }
+.syn_left {
+  flex: 1;
+  max-width: 45%;
+}
+.syn_left h1 {
+  font-size: 54px;
+  font-weight: bold;
+}
+.syn_left h3{
+  padding:30px;
+}
+.syn_left p {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  padding:30px;
+}
+.syn_left button {
+  padding: 12px 24px;
+  font-size: 16px;
+  background: #e8d3ff;
+  border-radius: 8px;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+.syn_right {
+  flex: 1;
+  position: relative;
+  height: 450px;
+}
+
+/* All cards start off-screen left and slide in one by one */
+.syn_card {
+  position: absolute;
+  border-radius: 12px;
+  border: 1px solid #000;
+  width: 500px;
+  height: 600px;
+  padding: 20px;
+  font-size: 16px;
+  box-sizing: border-box;
+  left:15%;
+  opacity: 0;
+  /* transform: translateX(-100%); */
+    transform-style: preserve-3d;
+  transition: box-shadow 0.3s ease;
+  animation: slideIn 0.8s ease forwards;
+/* 
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.3s ease, 
+              z-index 0.3s; */
+              transition: transform 0.5s cubic-bezier(0.25,1,0.5,1), box-shadow 0.3s ease;
+              
+}
+.syn_card1 {
+  top: 0px;
+  left: 0px;
+  background: #d9f7d3;
+  animation-delay: 0.2s;
+  z-index:7;
+}
+.syn_card2 {
+  top: 30px;
+  left: 40px;
+  background: #ffd1d1;
+  animation-delay: 0.4s;
+   z-index:6;
+}
+.syn_card3 {
+  top: 70px;
+  left: 80px;
+  background: #ffe8b3;
+  animation-delay: 0.6s;
+  z-index: 5;
+}
+.syn_card4 {
+  top: 110px;
+  left: 120px;
+  background: #e8d3ff;
+  animation-delay: 0.8s;
+  z-index: 4;
+}
+
+.syn_card:hover {
+  /* transform: translateY(-20px) rotate(-3deg) scale(1.5);
+  z-index: 10;
+  box-shadow: 0px 15px 30px rgba(0,0,0,0.2); */
+   /* animation: slideIn 0.8s ease forwards; */
+ box-shadow: 0px 25px 45px rgba(0,0,0,0.25),
+              0px 0px 30px rgba(130,100,255,0.25);
+
+  z-index: 10;
+}
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.syn_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 30px;
+  margin: 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: wrapperFadeIn 0.5s ease forwards;
+  height:95vh;
+  background-color: #faedcd;
+}
+
+/* All child elements within the wrapper slide in one after another */
+
+/* Staggered delays for child elements */
+.syn_wrapper *:nth-child(1) { animation-delay: 0.3s; }
+.syn_wrapper *:nth-child(2) { animation-delay: 0.5s; }
+.syn_wrapper *:nth-child(3) { animation-delay: 0.7s; }
+.syn_wrapper *:nth-child(4) { animation-delay: 0.9s; }
+.syn_wrapper *:nth-child(5) { animation-delay: 1.1s; }
+.syn_wrapper *:nth-child(6) { animation-delay: 1.3s; }
+
+/* Keyframes */
+@keyframes wrapperFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes elementSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

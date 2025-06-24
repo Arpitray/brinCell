@@ -1,3 +1,4 @@
+
 // Get the viewer
 const viewer = document.querySelector('#brainModel');
 
@@ -273,5 +274,27 @@ function runHeartTyping(text) {
   }
   addCharacter();
 }
+const cards = document.querySelectorAll('.syn_card');
+
+cards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left; // Mouse X relative to card
+    const y = e.clientY - rect.top;  // Mouse Y relative to card
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * 8; // Max 8° tilt
+    const rotateY = ((x - centerX) / centerX) * 8;
+
+    card.style.transition = 'none';
+    card.style.transform = `rotateX(${ -rotateX }deg) rotateY(${ rotateY }deg) scale(1.04)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+    card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+  });
+});
 
 
