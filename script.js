@@ -235,7 +235,8 @@ const heartPartInfo = {
   "pulmonary-trunk": "Pulmonary Trunk: Carries deoxygenated blood from the right ventricle.\nDivides into right and left pulmonary arteries.\nSupports gas exchange by sending blood to the lungs.\nActs as the main conduit of the pulmonary circuit.",
   "aorta": "Aorta: Main artery transporting oxygen-rich blood from the left ventricle.\nHas strong, elastic walls to tolerate high systemic pressure.\nBranches extensively to supply the entire body.\nEssential for sustaining systemic circulation.",
   "pulmonary-artery": "Right Pulmonary Artery: Transports deoxygenated blood from the heart to the right lung.\nConnects the right ventricle to the pulmonary capillaries.\nSupports gas exchange and reoxygenation of blood.\nPlays a vital role in the pulmonary circulation pathway.",
-  "Inferior Vena Cava": "Inferior Vena Cava: Returns deoxygenated blood from the lower body to the right atrium.\nTravels upward along the spine towards the heart.\nHas a wide diameter for high-volume venous return.\nSupports right atrial filling and overall cardiac output."
+  "Inferior Vena Cava": "Inferior Vena Cava: Returns deoxygenated blood from the lower body to the right atrium.\nTravels upward along the spine towards the heart.\nHas a wide diameter for high-volume venous return.\nSupports right atrial filling and overall cardiac output.",
+  "superior Vena Cava": "The Superior Vena Cava is a large vein that collects deoxygenated blood from the head, neck, upper chest, and arms and returns it to the Right Atrium of the heart. It is one of the main veins of the body and plays a vital role in ensuring blood returns to the heart for reoxygenation."
 };
 
 const heartDisplayDiv = document.querySelector('.innerText2');
