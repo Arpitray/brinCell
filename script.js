@@ -75,17 +75,20 @@ buttons.forEach(button => {
 
 // Reset camera
 const resetBtn = document.getElementById('resetCameraBtn');
+
 resetBtn.addEventListener('click', async () => {
-  viewer.cameraTarget = initialCameraTarget.toString();
-  viewer.cameraOrbit = initialCameraOrbit.toString();
+  // Animate camera reset using attributes and jumpCameraToGoal
+  viewer.setAttribute('camera-orbit', initialCameraOrbit);
+  viewer.setAttribute('camera-target', initialCameraTarget);
   await viewer.jumpCameraToGoal();
 
-  // Clear active state
-  buttons.forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.hotspot').forEach(b => {
-    b.classList.remove('active');
-  });
+  // Clear active states
+  // buttons.forEach(b => b.classList.remove('active'));
+  // document.querySelectorAll('.hotspot').forEach(b => {
+  //   b.classList.remove('active');
+  // });
 });
+
 const brainInfo = {
   frontal: "The Frontal Lobe is responsible for reasoning, planning, and controlling voluntary movements. It governs emotions, problem-solving, and speech production. It also plays a vital role in shaping our personality and making complex decisions.",
   parietal: "The Parietal Lobe processes sensory information such as touch, pressure, and pain. It assists with spatial orientation, navigation, and understanding language. Its role is crucial for integrating sensory inputs into a coherent picture.",

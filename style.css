@@ -53,7 +53,7 @@ body {
 .layout {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  /* align-items: center; */
   height: 76vh;
   width: 100%;
   /* gap: 2vw; Adds space between items responsively */
@@ -89,9 +89,6 @@ body {
   /* border-radius: 10px; */
   border-radius: 15px;
 }
-
-
-
 model-viewer {
   width: 48vw;
   height: 77vh;
@@ -154,7 +151,7 @@ model-viewer {
    /* margin-top: 20px; */
    /* flex-wrap: wrap;  */
   /* display:block; */
-  position:relative;
+  /* position:relative; */
   /* top:20%; */
   /* left:52%;/ */
   /* left:3%; */
@@ -182,7 +179,7 @@ model-viewer {
   color: #fff;
 }
 
-.brain-controls button {
+/* .brain-controls button {
   font-size: 1.2rem;
   border-radius: 6px;
   border: none;
@@ -193,10 +190,9 @@ model-viewer {
   cursor: pointer;
   transition: background-color 0.3s;
   /* display:block; */
-  width:10rem;
-  height:3rem;
+
   /* margin: 14px; */
-}
+
 .brain-controls button:hover {
   background: #adb5bd;
 }
@@ -302,7 +298,7 @@ font-family: "Alegreya Sans SC", sans-serif;
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
   gap: 20px;
-  padding: 20px;
+  padding: 43px;
 }
 
 .card {
@@ -345,6 +341,9 @@ font-family: "Alegreya Sans SC", sans-serif;
   width:100%;
   text-align: center;
   color:#e9ecef;
+}
+.heading h1{
+  margin-top: 4%;
 }
 .head2 {
   font-family: Arial, sans-serif;
@@ -433,21 +432,6 @@ model-viewer #heart-model
   background: #ff3d3d;
   color: #fff;
 }
-#heart-buttons
-{
-  position:relative;
-  margin-top:1%;
-  display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-     text-align: center;
-    background: #f1faee;
-    padding: 15px;
-    height:13rem;
-      background-image: radial-gradient(#8fc0a9 1px, transparent 1px);
-  background-size: 70px 70px;
-   
-}
  .heart-hotspot {
   display: none; /* All hotspots hidden by default */
 }
@@ -465,7 +449,7 @@ model-viewer #heart-model
 }
 #heart-buttons button{
   height:3rem;
-  margin-top:2.4%;
+  margin-top:3%;
   border-radius: 8px;
 }
 button:hover {
@@ -478,5 +462,58 @@ button:hover {
   text-align: center;
   color:#e9ecef;
 }
-
-  
+.heading2 {
+  margin-top:5%;
+}
+/* .line1
+{
+  position:absolute;
+  left:5%;
+  gap:10px;
+  top:20%;
+}
+   */
+   .liner1
+   {
+    position:absolute;
+    left: 5%;
+    top:65%;
+   }
+    .liner2
+   {
+    position:absolute;
+    left: 5%;
+    top:75%;
+    gap:10px;
+   }
+   .last
+   {
+      position:absolute;
+    left: 14%;
+    top:84%;
+    gap:10px;
+   }
+   .liner-heart1
+   {
+    position:absolute;
+    right: 5%;
+    top:246%;
+   }
+   .liner-heart2
+   {
+     position:absolute;
+    right: 5%;
+    top:252%;
+   }
+   .liner-heart3
+   {
+      position:absolute;
+    right: 5%;
+    top:259%;
+   }
+   .liner-heart4
+   {
+      position:absolute;
+    right: 5%;
+    top:265%;
+   }
