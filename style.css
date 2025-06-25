@@ -88,6 +88,11 @@ body {
   overflow: hidden;
   /* border-radius: 10px; */
   border-radius: 15px;
+    transition:
+    transform 0.5s cubic-bezier(0.25,1,0.5,1),
+    box-shadow 0.7s ease,
+    opacity 1s ease;
+    border: 2px solid black;
 }
 model-viewer {
   width: 48vw;
@@ -103,13 +108,6 @@ model-viewer {
   background-size: 40px 40px;
   border:2px solid black;
   border-radius: 15px;
-}
-
-.box:hover {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-  transform: scale(1.05);
 }
 .box .text
 {
@@ -135,7 +133,7 @@ model-viewer {
   font-size: 1.1rem;
   border: 2px solid transparent;
   transition: all 0.3s;
-  width:6rem
+  width:6rem;
 }
 
 .label.active {
@@ -370,12 +368,6 @@ font-family: "Alegreya Sans SC", sans-serif;
   cursor: pointer;
   border-radius: 10px;
 }
-.box2:hover {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-  transform: scale(1.05);
-}
 .box2 {
   font-family: "Walter Turncoat", cursive;
  background-color: #d8ba88;
@@ -447,11 +439,11 @@ model-viewer #heart-model
 
   /* display:inline; */
 }
-#heart-buttons button{
+/* #heart-buttons button{
   height:3rem;
   margin-top:3%;
   border-radius: 8px;
-}
+} */
 button:hover {
   box-shadow: 1px 1px 0px #000;
   transform: translate(2px, 2px);
@@ -477,62 +469,70 @@ button:hover {
    {
     position:absolute;
     left: 5%;
-    top:160%;
+    top:165%;
    }
     .liner2
    {
     position:absolute;
     left: 5%;
-    top:170%;
+    top:173%;
     gap:10px;
    }
    .last
    {
       position:absolute;
     left: 14%;
-    top:179%;
+    top:181%;
     gap:10px;
    }
    .liner-heart1
    {
     position:absolute;
     right: 5%;
-    top:246%;
+    top:347%;
    }
    .liner-heart2
    {
      position:absolute;
     right: 5%;
-    top:252%;
+    top:354%;
    }
    .liner-heart3
    {
       position:absolute;
     right: 5%;
-    top:259%;
+    top:362%;
    }
    .liner-heart4
    {
       position:absolute;
     right: 5%;
-    top:265%;
+    top:369%;
    }
 .syn_left {
   flex: 1;
   max-width: 45%;
 }
+.syn_left b{
+  color:#a22c29;
+}
 .syn_left h1 {
-  font-size: 54px;
+  font-size: 48px;
   font-weight: bold;
+  position: absolute;
+  top:25px;
+  color:#0a100d
+
 }
 .syn_left h3{
   padding:30px;
 }
 .syn_left p {
-  font-size: 16px;
+  font-size: 1.9em;
   line-height: 1.5;
   font-weight: 600;
-  padding:30px;
+  padding:15px;
+  margin-top:240px;
 }
 .syn_left button {
   padding: 12px 24px;
@@ -545,7 +545,15 @@ button:hover {
 .syn_right {
   flex: 1;
   position: relative;
-  height: 450px;
+  height: 700px;
+  margin-left:8%;
+  /* margin-top:4%; */
+}
+.syn_right h3{
+  position:absolute;
+  top:10px;
+  font-size: 1.6em;
+  left:46px;
 }
 
 /* All cards start off-screen left and slide in one by one */
@@ -553,61 +561,78 @@ button:hover {
   position: absolute;
   border-radius: 12px;
   border: 1px solid #000;
-  width: 500px;
-  height: 600px;
+  width: 35vw;
+  height: 60vh;
   padding: 20px;
   font-size: 16px;
+  top:80px;
   box-sizing: border-box;
-  left:15%;
-  opacity: 0;
-  /* transform: translateX(-100%); */
-    transform-style: preserve-3d;
-  transition: box-shadow 0.3s ease;
-  animation: slideIn 0.8s ease forwards;
-/* 
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-              box-shadow 0.3s ease, 
-              z-index 0.3s; */
-              transition: transform 0.5s cubic-bezier(0.25,1,0.5,1), box-shadow 0.3s ease;
-              
+
+  transform-style: preserve-3d;
+  background: #fff;
+  cursor: pointer;
+
+  /* Transitions WITHOUT delays */
+  transition:
+    transform 0.5s cubic-bezier(0.25,1,0.5,1),
+    box-shadow 0.7s ease,
+    opacity 1s ease;
+    border: 2px solid black;
 }
+
 .syn_card1 {
-  top: 0px;
+  top: 90px;
   left: 0px;
-  background: #d9f7d3;
+  background: #F08080 ;
   animation-delay: 0.2s;
   z-index:7;
+  /* color:#f4d58d; */
 }
 .syn_card2 {
-  top: 30px;
+  top: 120px;
   left: 40px;
   background: #ffd1d1;
   animation-delay: 0.4s;
    z-index:6;
 }
 .syn_card3 {
-  top: 70px;
+  top: 160px;
   left: 80px;
   background: #ffe8b3;
   animation-delay: 0.6s;
   z-index: 5;
 }
 .syn_card4 {
-  top: 110px;
+  top: 200px;
   left: 120px;
   background: #e8d3ff;
   animation-delay: 0.8s;
   z-index: 4;
 }
+.box:hover{
+    transition:
+    transform 0.5s cubic-bezier(0.25,1,0.5,1) 2s,
+    box-shadow 0.7s ease 2s,
+    opacity 1s ease 2s;
+  /* Hover styles */
+  box-shadow: 0px 25px 45px rgba(0,0,0,0.25),
+              0px 0px 30px rgba(130,100,255,0.25);
+  opacity: 1;
+  z-index: 10;
+  cursor: pointer;
+}
 
 .syn_card:hover {
-  /* transform: translateY(-20px) rotate(-3deg) scale(1.5);
-  z-index: 10;
-  box-shadow: 0px 15px 30px rgba(0,0,0,0.2); */
-   /* animation: slideIn 0.8s ease forwards; */
- box-shadow: 0px 25px 45px rgba(0,0,0,0.25),
+  /* Here you add delays so only hover-in is delayed */
+  transition:
+    transform 0.5s cubic-bezier(0.25,1,0.5,1) 2s,
+    box-shadow 0.7s ease 2s,
+    opacity 1s ease 2s;
+ 
+  /* Hover styles */
+  box-shadow: 0px 25px 45px rgba(0,0,0,0.25),
               0px 0px 30px rgba(130,100,255,0.25);
-
+  opacity: 1;
   z-index: 10;
 }
 @keyframes slideIn {
@@ -634,12 +659,12 @@ button:hover {
 /* All child elements within the wrapper slide in one after another */
 
 /* Staggered delays for child elements */
-.syn_wrapper *:nth-child(1) { animation-delay: 0.3s; }
+/* .syn_wrapper *:nth-child(1) { animation-delay: 0.3s; }
 .syn_wrapper *:nth-child(2) { animation-delay: 0.5s; }
 .syn_wrapper *:nth-child(3) { animation-delay: 0.7s; }
 .syn_wrapper *:nth-child(4) { animation-delay: 0.9s; }
 .syn_wrapper *:nth-child(5) { animation-delay: 1.1s; }
-.syn_wrapper *:nth-child(6) { animation-delay: 1.3s; }
+.syn_wrapper *:nth-child(6) { animation-delay: 1.3s; } */
 
 /* Keyframes */
 @keyframes wrapperFadeIn {
@@ -653,4 +678,50 @@ button:hover {
     opacity: 1;
     transform: translateY(0);
   }
+}
+.syn_card .image {
+  /* height:200px; */
+  width:100%;
+  text-align: center;
+  
+}
+.syn_card img{
+  height:250px;
+background-size: contain;
+text-align: center;
+/* width:100%; */
+border-radius: 9px;
+}
+.syn_card p
+{
+  font-size: 1.5em;
+  margin-top:30px;
+  font-weight: 650;
+  padding:20px;
+}
+.card-Btn
+{
+  display: flex;
+  justify-content: right;
+  padding:10px;
+}
+.syn_card .b{
+  color:#8d0801;
+}
+button:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+.syn_card .h{
+  color:#d8572a;
+}
+.lungs-hotspot {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lungs-hotspot.visible {
+  opacity: 1;
+  pointer-events: auto;
 }

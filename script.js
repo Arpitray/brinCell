@@ -284,8 +284,8 @@ cards.forEach(card => {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotateX = ((y - centerY) / centerY) * 8; // Max 8° tilt
-    const rotateY = ((x - centerX) / centerX) * 8;
+    const rotateX = ((y - centerY) / centerY) * 14; // Max 8° tilt
+    const rotateY = ((x - centerX) / centerX) * 14;
 
     card.style.transition = 'none';
     card.style.transform = `rotateX(${ -rotateX }deg) rotateY(${ rotateY }deg) scale(1.04)`;
@@ -296,5 +296,109 @@ cards.forEach(card => {
     card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
   });
 });
+  document.getElementById('goToBrain').addEventListener('click', () => {
+    document.getElementById('brainSection')
+            .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+  });
+    document.getElementById('goToHeart').addEventListener('click', () => {
+    document.getElementById('heartSection')
+            .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+  });
+   document.getElementById('goToLungs').addEventListener('click', () => {
+    document.getElementById('lungsSection')
+            .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+  });
+  
+  const boxes = document.querySelectorAll('.box');
+
+boxes.forEach(box => {
+  box.addEventListener('mousemove', (e) => {
+    const rect = box.getBoundingClientRect();
+    const x = e.clientX - rect.left; // Mouse X relative to card
+    const y = e.clientY - rect.top;  // Mouse Y relative to card
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * 14; // Max 8° tilt
+    const rotateY = ((x - centerX) / centerX) * 14;
+
+    box.style.transition = 'none';
+    box.style.transform = `rotateX(${ -rotateX }deg) rotateY(${ rotateY }deg) scale(1.04)`;
+  });
+
+  box.addEventListener('mouseleave', () => {
+    box.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+    box.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+  });
+});
+// Define camera positions for each part of the lung
+// ==================== LUNGS MODEL CAMERA HANDLERS =====================
+
+// Positions
+// ==================== LUNG PART POSITIONS =====================
+
+// ==================== LUNG PART POSITIONS =====================
+const lungPartPositions = {
+  "trachea": "0deg 45deg 0.8m",
+  "bronchi": "-7deg 110deg 1m",
+  "right-lung": "-45deg 90deg 0.9m",
+  "left-lung": "45deg 90deg 0.9m",
+  "apex": "45deg 35deg 0.9m",
+  "base": "-20deg 90deg 1m",
+  "superior-lobe": "-35deg 70deg 0.9m",
+  "middle-lobe": "-35deg 90deg 0.9m",
+  "inferior-lobe": "-35deg 110deg 0.9m",
+  "notch": "-45deg 110deg 0.4m"
+};
+
+const lungModel = document.querySelector('#lungsModel');
+const initialLungOrbit = lungModel.getAttribute('camera-orbit');
+
+function highlightLungPart(button, part) {
+  // Move camera
+  if (lungPartPositions[part]) {
+    lungModel.setAttribute('camera-orbit', lungPartPositions[part]);
+  }
+
+  // Reset any active labels
+  document.querySelectorAll('#lungsModel .lungs-label')
+    .forEach(label => label.classList.remove('active'));
+
+  // Highlight only if it's an internal hotspot
+  if (button && button.querySelector('.lungs-label')) {
+    button.querySelector('.lungs-label').classList.add('active');
+  }
+}
+
+// ==================== HANDLE EXTERNAL BUTTONS ===================
+const externalLungButtons = document.querySelectorAll('#lung-buttons button');
+externalLungButtons.forEach(button => {
+  button.addEventListener('click', e => {
+    const part = e.currentTarget.getAttribute('data-part');
+
+    // Move camera
+    highlightLungPart(null, part);
+
+    // Hide all hotspots
+    document.querySelectorAll('.lungs-hotspot')
+      .forEach(hotspot => hotspot.classList.remove('visible'));
+
+    // Show the specific hotspot
+    const targetHotspot = document.querySelector(`.lungs-hotspot[data-part="${part}"]`);
+    if (targetHotspot) {
+      targetHotspot.classList.add('visible');
+    }
+  });
+});
+
+// ==================== RESET CAMERA BUTTON ===================
+const resetLungButton = document.querySelector('#reset-lung-camera');
+resetLungButton?.addEventListener('click', () => {
+  lungModel.setAttribute('camera-orbit', initialLungOrbit);
+});
+
+
+
+
 
 

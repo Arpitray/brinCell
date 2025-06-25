@@ -14,26 +14,40 @@
   <div class="syn_wrapper">
   <!-- Left Side -->
   <div class="syn_left">
-    <h1>Welcome to the Synapse!</h1>
-    <h3>Learning sign language</h3>
-    <p>Are you a parent or educator with a child who needs to learn sign language? We make it fun and easy to learn the fundamentals of sign language in our online course! Take learning Sign Language into your own hands!</p>
-    <p>We believe that SL should be accessible to everyone regardless of economic means, so we publish our videos for free!</p>
-    <button>Get Started Learning</button>
+    <h1>Welcome to the <b>Visceral Visions!</b></h1>
+    <p>Take a closer look inside the human body — an interactive 3D experience featuring highly detailed models of the brain, heart, lungs, and more. Explore, learn, and understand anatomy like never before!</p>
+    <!-- <p>We believe that SL should be accessible to everyone regardless of economic means, so we publish our videos for free!</p>/ -->
   </div>
 
   <!-- Right Side Cards -->
   <div class="syn_right">
+     <h3>Visit the Anatomies</h3>
     <div class="syn_card syn_card1">
-      <h2>Tests</h2>
-      <p>Complete the tests and practice to build up your knowledge</p>
+      <div class="image">
+        <img src="assets/brain.png" alt="">
+      </div>
+      <p><b class="b">Brain:</b> The body's command center, controlling thoughts, emotions, and movement, made up of billions of interconnected neurons.</p>
+      <div class="card-Btn">
+         <button id="goToBrain">Explore!</button>
+      </div>
     </div>
     <div class="syn_card syn_card2">
-      <h2>Alphabet</h2>
-      <p>Learn letters and numbers</p>
+      <div class="image">
+        <img src="assets/HeartImage.png" alt="">
+      </div>
+      <p><b class="h">Heart:</b> A powerful muscular organ that pumps blood throughout the body, delivering oxygen and nutrients to every cell .</p>
+      <div class="card-Btn">
+         <button id="goToHeart">Explore!</button>
+      </div>
     </div>
     <div class="syn_card syn_card3">
-      <h2>Words</h2>
-      <p>Master common words and expressions in sign language</p>
+  <div class="image">
+        <img src="assets/lung.png" alt="">
+      </div>
+      <p><b class="l">Heart:</b> A powerful muscular organ that pumps blood throughout the body, delivering oxygen and nutrients to every cell .</p>
+      <div class="card-Btn">
+         <button id="goToLungs">Explore!</button>
+      </div>
     </div>
     <div class="syn_card syn_card4">
       <h2>Phrases</h2>
@@ -43,13 +57,13 @@
 </div>
 
   <!-- Templates for images (hidden) -->
-  <div class="nav">
+  <div id="brainSection" class="nav">
     <span class="head">
       Brain section
     </span>
   </div>
 <div class="layout">
-  <div class="box ">
+  <div  class="box ">
     <div class ="text" >
       <h2>Brain</h2>
       <div class="innerText">
@@ -150,8 +164,8 @@
 </div>
   </div>
 </div>
-<div class="nav2">
-    <span class="head2">
+<div id="heartSection" class="nav">
+    <span class="head">
       Heart section
     </span>
   </div>
@@ -210,8 +224,8 @@
 
 </model-viewer>
 
-  <div class="box2 ">
-    <div class ="text2" >
+  <div class="box ">
+    <div class ="text" >
       <h2>Heart</h2>
       <div class="innerText2">
         Just click any of the Heart anatomy buttons and we'll take you straight to an interactive 3D view of that Heart part. It's a fun and easy way to learn — one click, and you're there!
@@ -278,6 +292,125 @@
 </div>
   </div>
 </div>
+  <div id="lungsSection" class="nav">
+    <span class="head">
+      Lungs section
+    </span>
+  </div>
+<div class="layout">
+  <div  class="box ">
+    <div class ="textLungs" >
+      <h2>Brain</h2>
+      <div class="innerTextLungs">
+        Just click any of the cerebral anatomy buttons and we'll take you straight to an interactive 3D view of that brain part. It's a fun and easy way to learn — one click, and you're there!
+      </div>
+    </div>
+  </div>
+<model-viewer
+  id="lungsModel"
+  src="assets/lungs/lund.glb"
+  camera-controls
+  disable-zoom
+  disable-pan
+>
+<!-- Trachea -->
+<!-- Trachea -->
+<button slot="hotspot-trachea" class="lungs-hotspot"
+        data-position="-0.01 0.1 -0.01" data-normal="0 0 0"
+        data-part="trachea"
+        onClick="highlightLungPart(this, 'trachea')">
+  <div class="lungs-label">Trachea</div>
+</button>
+
+<!-- Bronchi -->
+<button slot="hotspot-bronchi" class="lungs-hotspot"
+        data-position="-0.01 -0.046 -0.01" data-normal="0 1 0"
+        data-part="bronchi"
+        onClick="highlightLungPart(this, 'bronchi')">
+  <div class="lungs-label">  Bronchi  </div>
+</button>
+
+<!-- Right-Lung -->
+<button slot="hotspot-right-lung" class="lungs-hotspot"
+        data-position="-0.2 -0.046 0.08" data-normal="0 1 0"
+        data-part="right-lung"
+        onClick="highlightLungPart(this, 'right-lung')">
+  <div class="lungs-label">Right Lung</div>
+</button>
+
+<!-- left-lung -->
+<button slot="hotspot-left-lung" class="lungs-hotspot"
+        data-position="0.2 -0.046 0.08" data-normal="0 1 0"
+        data-part="left-lung"
+        onClick="highlightLungPart(this, 'left-lung')">
+  <div class="lungs-label">Left-Lung</div>
+</button>
+
+<!-- Apex -->
+<button slot="hotspot-apex" class="lungs-hotspot"
+        data-position="-0.06 0.1 -0.04" data-normal="0 1 0"
+        data-part="apex"
+        onClick="highlightLungPart(this, 'apex')">
+  <div class="lungs-label">Apex</div>
+</button>
+
+<!-- Base -->
+<button slot="hotspot-base" class="lungs-hotspot"
+        data-position="-0.13 -0.2 0.1" data-normal="0 1 0"
+        data-part="base"
+        onClick="highlightLungPart(this, 'base')">
+  <div class="lungs-label">Base</div>
+</button>
+
+<!-- Superior Lobe-->
+<button slot="hotspot-superior-lobe" class="lungs-hotspot"
+        data-position="-0.18 0.06 -0.04" data-normal="0 1 0"
+        data-part="superior-lobe"
+        onClick="highlightLungPart(this, 'superior-lobe')">
+  <div class="lungs-label">Superior Lobe</div>
+</button>
+
+<!-- middle -lobe -->
+<button slot="hotspot-middle-lobe" class="lungs-hotspot"
+        data-position="-0.18 -0.1 -0.04" data-normal="0 1 0"
+        data-part="middle-lobe"
+        onClick="highlightLungPart(this, 'middle-lobe')">
+  <div class="lungs-label">Middle Lobe</div>
+</button>
+
+<!-- inferior-lobe-->
+<button slot="hotspot-inferior-lobe" class="lungs-hotspot"
+        data-position="-0.18 -0.2 -0.01" data-normal="0 1 0"
+        data-part="inferior-lobe"
+        onClick="highlightLungPart(this, 'inferior-lobe')">
+  <div class="lungs-label">Inferior-Lobe</div>
+</button>
+
+<!-- Cardiac Notch -->
+<button slot="hotspot-notch" class="lungs-hotspot"
+        data-position="0.13 -0.1 0.02" data-normal="0 1 0"
+        data-part="notch"
+        onClick="highlightLungPart(this, 'notch')">
+  <div class="lungs-label">Cardiac Notch</div>
+</button>
+
+</model-viewer>
+  </div>
+<div id="lung-buttons">
+  <button data-part="trachea">Trachea</button>
+  <button data-part="bronchi">Bronchi</button>
+  <button data-part="right-lung">Right Lung</button>
+  <button data-part="left-lung">Left Lung</button>
+  <button data-part="apex">Apex</button>
+  <button data-part="base">Base</button>
+  <button data-part="superior-lobe">Superior Lobe</button>
+  <button data-part="middle-lobe">Middle Lobe</button>
+  <button data-part="inferior-lobe">Inferior-Lobe</button>
+  <button data-part="notch">Cardiac Notch</button>
+  <button id="reset-lung-camera">Reset Camera</button>
+  
+</div>
+
     <script src="script.js"></script>
 </body>
 </html>
