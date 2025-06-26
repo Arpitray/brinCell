@@ -361,6 +361,10 @@ cards.forEach(card => {
     document.getElementById('lungsSection')
             .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
   });
+     document.getElementById('goToKidney').addEventListener('click', () => {
+    document.getElementById('kidneySection')
+            .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+  });
   
   const boxes = document.querySelectorAll('.box');
 
@@ -492,5 +496,63 @@ const layoutObserver = new IntersectionObserver((entries) => {
 // Observe every direct child
 layoutItems.forEach(item => layoutObserver.observe(item));
 
+const kidneyPartPositions = {
+  "cortex": "-75deg 75deg 2m",
+  "medulla": "0deg 60deg 1.5m",
+  "pelvis": "0deg 70deg 2m",
+  "artery": "0deg 80deg 2m",
+  "vein": "15deg 100deg 2m",
+  "ureter": "-90deg 60deg 2m"
+};
+
+const kidneyModel = document.querySelector('#kidney-model');
+const initialKidneyOrbit = kidneyModel.getAttribute('camera-orbit');
+
+function highlightKidneyPart(button, part) {
+  // Move camera
+  if (kidneyPartPositions[part]) {
+    kidneyModel.setAttribute('camera-orbit', kidneyPartPositions[part]);
+  }
+
+  // Reset any active labels
+  document.querySelectorAll('#kidney-model .kidney-label')
+    .forEach(label => label.classList.remove('active'));
+
+  // Highlight only if it's an internal hotspot
+  if (button && button.querySelector('.kidney-label')) {
+    button.querySelector('.kidney-label').classList.add('active');
+  }
+}
+
+// ==================== HANDLE EXTERNAL BUTTONS ===================
+const externalKidneyButtons = document.querySelectorAll('.kidney-buttons button');
+externalKidneyButtons.forEach(button => {
+  button.addEventListener('click', e => {
+    const part = e.currentTarget.getAttribute('data-part');
+
+    // Move camera
+    highlightKidneyPart(null, part);
+
+    // Hide all hotspots
+    document.querySelectorAll('.kidney-hotspot')
+      .forEach(hotspot => hotspot.classList.remove('visible'));
+
+    // Show the specific hotspot
+    const targetHotspot = document.querySelector(`.kidney-hotspot[data-part="${part}"]`);
+    if (targetHotspot) {
+      targetHotspot.classList.add('visible');
+    }
+  });
+});
+
+// ==================== RESET CAMERA BUTTON ===================
+const resetKidneyButton = document.querySelector('#reset-kidney-camera');
+resetKidneyButton?.addEventListener('click', () => {
+  kidneyModel.setAttribute('camera-orbit', initialKidneyOrbit);
+
+  // Hide all hotspots
+  document.querySelectorAll('.kidney-hotspot')
+    .forEach(hotspot => hotspot.classList.remove('visible'));
+});
 
 

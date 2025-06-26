@@ -349,6 +349,13 @@ model-viewer #heart-model
 .heart-hotspot.visible {
   display: block !important;
 }  
+.kidney-hotspot
+{
+  display: none;
+}
+.kidney-hotspot.visible{
+  display: block !important;
+}
 
 #heart-buttons h2{
     text-align: center;
@@ -605,6 +612,9 @@ button:active {
 }
 .syn_card .h{
   color:#d8572a;
+}
+.syn_card .k{
+  color:#381d2a;
 }
 .lungs-hotspot {
   opacity: 0;
