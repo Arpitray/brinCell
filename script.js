@@ -31,6 +31,8 @@ function highlightViaButton(part) {
   const hotspot = document.querySelector(`[slot="hotspot-${part}"]`);
   if (hotspot) highlightPart(hotspot, part);
 }
+  document.querySelectorAll('#brainModel .label')
+    .forEach(label => label.classList.remove('active'));
 
 // Move camera
 function moveToPart(part) {
@@ -75,20 +77,12 @@ buttons.forEach(button => {
 });
 
 // Reset camera
-const resetBtn = document.getElementById('resetCameraBtn');
-
-resetBtn.addEventListener('click', async () => {
-  // Animate camera reset using attributes and jumpCameraToGoal
-  viewer.setAttribute('camera-orbit', initialCameraOrbit);
-  viewer.setAttribute('camera-target', initialCameraTarget);
-  await viewer.jumpCameraToGoal();
-
-  // Clear active states
-  // buttons.forEach(b => b.classList.remove('active'));
-  // document.querySelectorAll('.hotspot').forEach(b => {
-  //   b.classList.remove('active');
-  // });
+const BrainModel = document.querySelector("#brainModel");
+const resetBrainButton = document.querySelector('#resetCameraBtn');
+resetBrainButton?.addEventListener('click', () => {
+  BrainModel.setAttribute('camera-orbit', initialLungOrbit);
 });
+
 
 const brainInfo = {
   frontal: "The Frontal Lobe is responsible for reasoning, planning, and controlling voluntary movements. It governs emotions, problem-solving, and speech production. It also plays a vital role in shaping our personality and making complex decisions.",
@@ -192,11 +186,11 @@ function highlightHeartPartForHeart(button, part) {
   heartModelViewer.setAttribute('camera-orbit', heartPartPositions[part]);
 
   // Highlight label
-  if (button && button.querySelector('.heart-label')) {
-    document.querySelectorAll('#heart-model .heart-label')
-      .forEach(label => label.classList.remove('active'));
-    button.querySelector('.heart-label')?.classList.add('active');
-  }
+  // if (button && button.querySelector('.label')) {
+  //   document.querySelectorAll('#heart-model .label')
+  //     .forEach(label => label.classList.remove('active'));
+  //   button.querySelector('.label')?.classList.add('active');
+  // }
 }
 
 
@@ -274,6 +268,65 @@ function runHeartTyping(text) {
   }
   addCharacter();
 }
+const lungDataMap = {
+  trachea: "Trachea: The main airway that connects the throat (larynx) to the bronchi, reinforced with C-shaped cartilage rings to stay open, allowing air to move smoothly in and out of the lungs.",
+  bronchi: "Bronchi: The two primary branches of the trachea that direct air into the right and left lungs, progressively dividing into smaller bronchi and bronchioles for efficient air distribution throughout the lung tissue.",
+  "right-lung": "Right Lung: The larger of the two lungs, divided into three lobes (superior, middle, and inferior), providing a significant area for gas exchange and supporting a greater volume of breathing.",
+  "left-lung": "Left Lung: The smaller lung with two lobes (superior and inferior), shaped to accommodate the heart and maintain vital gas exchange despite its slightly reduced volume.",
+  apex: "Apex: The rounded top portion of the lung that sits just above the first rib and slightly extends into the root of the neck, aiding in the uppermost area of breathing and gas distribution.",
+  base: "Base: The broad, dome-shaped lower surface of the lung resting on the diaphragm, rising and falling with breathing to enable deep air intake and release.",
+  "superior-lobe": "Superior Lobe: The uppermost segment of both lungs, rich in alveoli, facilitating a significant portion of oxygen intake and carbon dioxide expulsion during breathing.",
+  "middle-lobe": "Middle Lobe: The right lung's central segment, adding surface area for gas exchange and contributing to overall lung efficiency and breathing capacity.",
+  "inferior-lobe": "Inferior Lobe: The largest and lowest lobe of both lungs, expanding extensively with breathing and providing the majority of the surface area for vital gas exchange.",
+  notch: "Cardiac Notch: A distinct indentation in the left lung shaped to accommodate the heart, allowing it to fit snugly within the chest and ensuring both organs have enough space to function effectively."
+};
+
+
+
+const lungOutputDiv = document.querySelector('.innerText3');
+let lungTypingTimeouts = [];
+
+function clearLungTyping() {
+  lungTypingTimeouts.forEach(t => clearTimeout(t));
+  lungTypingTimeouts = [];
+}
+
+function animateLungText(content) {
+  lungOutputDiv.innerHTML = ""; 
+  let pos = 0;
+
+  function addNextLungCharacter() {
+    if (pos < content.length) {
+      lungOutputDiv.innerHTML += content[pos];
+      pos++;
+      lungTypingTimeouts.push(setTimeout(addNextLungCharacter, 20));
+    }
+  }
+
+  addNextLungCharacter();
+}
+
+// Event listener
+document.querySelectorAll('[data-part]').forEach(button => {
+  button.addEventListener('click', e => {
+    const partKey = e.currentTarget.getAttribute('data-part');
+    if (lungDataMap[partKey]) {
+      clearLungTyping();
+      animateLungText(lungDataMap[partKey]);
+    }
+  });
+});
+
+// Event listener for all buttons with data-part
+document.querySelectorAll('[data-part]').forEach(button => {
+  button.addEventListener('click', e => {
+    const part = e.currentTarget.getAttribute('data-part');
+    if (lungPartsInfo[part]) {
+      cancelTyping();
+      runTyping(lungPartsInfo[part]);
+    }
+  });
+});
 const cards = document.querySelectorAll('.syn_card');
 
 cards.forEach(card => {
@@ -396,9 +449,48 @@ const resetLungButton = document.querySelector('#reset-lung-camera');
 resetLungButton?.addEventListener('click', () => {
   lungModel.setAttribute('camera-orbit', initialLungOrbit);
 });
+const headElements = document.querySelectorAll('.head');
 
+headElements.forEach(el => {
+  el.addEventListener('click', () => {
+    window.location.reload();
+  });
+});
+// Get all cards
+const scrollCards = document.querySelectorAll('.card');
 
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    // When card is in view, add 'show' class
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      // Optional: Unobserve after it's shown once
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.3 // Trigger when 10% of card is visible
+});
 
+// Observe each card
+scrollCards.forEach(card => observer.observe(card));
+const layoutItems = document.querySelectorAll('.layout > *');
+
+const layoutObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const index = Array.from(layoutItems).indexOf(entry.target);
+      entry.target.style.transitionDelay = `${index * 0.03}s`;
+      entry.target.classList.add('show');
+      layoutObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.1
+});
+
+// Observe every direct child
+layoutItems.forEach(item => layoutObserver.observe(item));
 
 
 
