@@ -1,8 +1,8 @@
 
 // Get the viewer
+//Brain_model//
 const viewer = document.querySelector('#brainModel');
 
-// Store initial camera target/orbit
 let initialCameraTarget;
 let initialCameraOrbit;
 
@@ -92,9 +92,9 @@ const brainInfo = {
   cerebellum: "The Cerebellum coordinates voluntary movements, maintains balance, and refines motor skills. It plays a role in motor learning, making movements smooth and precise. Without it, basic activities like walking or writing would be challenging.",
   stem: "The Brain Stem controls vital life-sustaining functions such as breathing, heart rate, and blood pressure. It acts as a relay center, connecting the brain to the spinal cord, and governs essential reflexes like swallowing, coughing, and sleeping. Its role is crucial for survival and maintaining consciousness."
 };
-// innerText.innerHTML = brainInfo.frontal;
+// innerText.innerHTML = brainInfo.frontal.
 
-
+//infoInsertion
 
 const displayDiv = document.querySelector('.innerText');
 let typingTimeouts = [];
@@ -130,8 +130,7 @@ function typeWriter(text) {
   }
   addCharacter();
 }
-// const heartModel = document.querySelector('#heart-model');
-
+//heart_Model //
 const heartModel = document.querySelector('#heart-model');
 
 // Camera angles/distances for every heart part
@@ -192,8 +191,6 @@ function highlightHeartPartForHeart(button, part) {
   //   button.querySelector('.label')?.classList.add('active');
   // }
 }
-
-
 const heartModelViewer = document.querySelector('#heart-model');
 const initialHeartOrbit = heartModelViewer.getAttribute('camera-orbit');
 const heartResetButton = document.querySelector('#reset-camera');
@@ -268,65 +265,6 @@ function runHeartTyping(text) {
   }
   addCharacter();
 }
-const lungDataMap = {
-  trachea: "Trachea: The main airway that connects the throat (larynx) to the bronchi, reinforced with C-shaped cartilage rings to stay open, allowing air to move smoothly in and out of the lungs.",
-  bronchi: "Bronchi: The two primary branches of the trachea that direct air into the right and left lungs, progressively dividing into smaller bronchi and bronchioles for efficient air distribution throughout the lung tissue.",
-  "right-lung": "Right Lung: The larger of the two lungs, divided into three lobes (superior, middle, and inferior), providing a significant area for gas exchange and supporting a greater volume of breathing.",
-  "left-lung": "Left Lung: The smaller lung with two lobes (superior and inferior), shaped to accommodate the heart and maintain vital gas exchange despite its slightly reduced volume.",
-  apex: "Apex: The rounded top portion of the lung that sits just above the first rib and slightly extends into the root of the neck, aiding in the uppermost area of breathing and gas distribution.",
-  base: "Base: The broad, dome-shaped lower surface of the lung resting on the diaphragm, rising and falling with breathing to enable deep air intake and release.",
-  "superior-lobe": "Superior Lobe: The uppermost segment of both lungs, rich in alveoli, facilitating a significant portion of oxygen intake and carbon dioxide expulsion during breathing.",
-  "middle-lobe": "Middle Lobe: The right lung's central segment, adding surface area for gas exchange and contributing to overall lung efficiency and breathing capacity.",
-  "inferior-lobe": "Inferior Lobe: The largest and lowest lobe of both lungs, expanding extensively with breathing and providing the majority of the surface area for vital gas exchange.",
-  notch: "Cardiac Notch: A distinct indentation in the left lung shaped to accommodate the heart, allowing it to fit snugly within the chest and ensuring both organs have enough space to function effectively."
-};
-
-
-
-const lungOutputDiv = document.querySelector('.innerText3');
-let lungTypingTimeouts = [];
-
-function clearLungTyping() {
-  lungTypingTimeouts.forEach(t => clearTimeout(t));
-  lungTypingTimeouts = [];
-}
-
-function animateLungText(content) {
-  lungOutputDiv.innerHTML = ""; 
-  let pos = 0;
-
-  function addNextLungCharacter() {
-    if (pos < content.length) {
-      lungOutputDiv.innerHTML += content[pos];
-      pos++;
-      lungTypingTimeouts.push(setTimeout(addNextLungCharacter, 20));
-    }
-  }
-
-  addNextLungCharacter();
-}
-
-// Event listener
-document.querySelectorAll('[data-part]').forEach(button => {
-  button.addEventListener('click', e => {
-    const partKey = e.currentTarget.getAttribute('data-part');
-    if (lungDataMap[partKey]) {
-      clearLungTyping();
-      animateLungText(lungDataMap[partKey]);
-    }
-  });
-});
-
-// Event listener for all buttons with data-part
-document.querySelectorAll('[data-part]').forEach(button => {
-  button.addEventListener('click', e => {
-    const part = e.currentTarget.getAttribute('data-part');
-    if (lungPartsInfo[part]) {
-      cancelTyping();
-      runTyping(lungPartsInfo[part]);
-    }
-  });
-});
 const cards = document.querySelectorAll('.syn_card');
 
 cards.forEach(card => {
@@ -395,6 +333,65 @@ boxes.forEach(box => {
 // ==================== LUNG PART POSITIONS =====================
 
 // ==================== LUNG PART POSITIONS =====================
+
+//Lungs_Model //
+const lungModel = document.querySelector('#lungsModel');
+const lungDataMap = {
+  trachea: "Trachea: The main airway that connects the throat (larynx) to the bronchi, reinforced with C-shaped cartilage rings to stay open, allowing air to move smoothly in and out of the lungs.",
+  bronchi: "Bronchi: The two primary branches of the trachea that direct air into the right and left lungs, progressively dividing into smaller bronchi and bronchioles for efficient air distribution throughout the lung tissue.",
+  "right-lung": "Right Lung: The larger of the two lungs, divided into three lobes (superior, middle, and inferior), providing a significant area for gas exchange and supporting a greater volume of breathing.",
+  "left-lung": "Left Lung: The smaller lung with two lobes (superior and inferior), shaped to accommodate the heart and maintain vital gas exchange despite its slightly reduced volume.",
+  apex: "Apex: The rounded top portion of the lung that sits just above the first rib and slightly extends into the root of the neck, aiding in the uppermost area of breathing and gas distribution.",
+  base: "Base: The broad, dome-shaped lower surface of the lung resting on the diaphragm, rising and falling with breathing to enable deep air intake and release.",
+  "superior-lobe": "Superior Lobe: The uppermost segment of both lungs, rich in alveoli, facilitating a significant portion of oxygen intake and carbon dioxide expulsion during breathing.",
+  "middle-lobe": "Middle Lobe: The right lung's central segment, adding surface area for gas exchange and contributing to overall lung efficiency and breathing capacity.",
+  "inferior-lobe": "Inferior Lobe: The largest and lowest lobe of both lungs, expanding extensively with breathing and providing the majority of the surface area for vital gas exchange.",
+  notch: "Cardiac Notch: A distinct indentation in the left lung shaped to accommodate the heart, allowing it to fit snugly within the chest and ensuring both organs have enough space to function effectively."
+};
+const lungOutputDiv = document.querySelector('.innerText3');
+let lungTypingTimeouts = [];
+
+function clearLungTyping() {
+  lungTypingTimeouts.forEach(t => clearTimeout(t));
+  lungTypingTimeouts = [];
+}
+
+function animateLungText(content) {
+  lungOutputDiv.innerHTML = ""; 
+  let pos = 0;
+
+  function addNextLungCharacter() {
+    if (pos < content.length) {
+      lungOutputDiv.innerHTML += content[pos];
+      pos++;
+      lungTypingTimeouts.push(setTimeout(addNextLungCharacter, 20));
+    }
+  }
+
+  addNextLungCharacter();
+}
+
+// Event listener
+document.querySelectorAll('[data-part]').forEach(button => {
+  button.addEventListener('click', e => {
+    const partKey = e.currentTarget.getAttribute('data-part');
+    if (lungDataMap[partKey]) {
+      clearLungTyping();
+      animateLungText(lungDataMap[partKey]);
+    }
+  });
+});
+
+// Event listener for all buttons with data-part
+document.querySelectorAll('[data-part]').forEach(button => {
+  button.addEventListener('click', e => {
+    const part = e.currentTarget.getAttribute('data-part');
+    if (lungPartsInfo[part]) {
+      cancelTyping();
+      runTyping(lungPartsInfo[part]);
+    }
+  });
+});
 const lungPartPositions = {
   "trachea": "0deg 45deg 0.8m",
   "bronchi": "-7deg 110deg 1m",
@@ -407,8 +404,6 @@ const lungPartPositions = {
   "inferior-lobe": "-35deg 110deg 0.9m",
   "notch": "-45deg 110deg 0.4m"
 };
-
-const lungModel = document.querySelector('#lungsModel');
 const initialLungOrbit = lungModel.getAttribute('camera-orbit');
 
 function highlightLungPart(button, part) {
@@ -496,16 +491,16 @@ const layoutObserver = new IntersectionObserver((entries) => {
 // Observe every direct child
 layoutItems.forEach(item => layoutObserver.observe(item));
 
+//Kidney_Model//
+const kidneyModel = document.querySelector('#kidney-model');
 const kidneyPartPositions = {
   "cortex": "-75deg 75deg 2m",
   "medulla": "0deg 60deg 1.5m",
   "pelvis": "0deg 70deg 2m",
-  "artery": "0deg 80deg 2m",
+  "artery": "0deg 80deg 1m",
   "vein": "15deg 100deg 2m",
-  "ureter": "-90deg 60deg 2m"
+  "ureter": "25deg 60deg 2m"
 };
-
-const kidneyModel = document.querySelector('#kidney-model');
 const initialKidneyOrbit = kidneyModel.getAttribute('camera-orbit');
 
 function highlightKidneyPart(button, part) {
@@ -554,5 +549,40 @@ resetKidneyButton?.addEventListener('click', () => {
   document.querySelectorAll('.kidney-hotspot')
     .forEach(hotspot => hotspot.classList.remove('visible'));
 });
+const kidneyInfoMap = {
+  cortex: "Cortex: The outer layer of the kidney containing the glomeruli and convoluted tubules. It's the primary site for blood filtration and the initial steps of urine formation.",
+  medulla: "Medulla: The innermost part of the kidney, organized into renal pyramids. It contains loops of Henle and collecting ducts that concentrate urine by reabsorbing water and salts.",
+  pelvis: "Renal Pelvis: A funnel-shaped cavity that collects urine from the major and minor calyces. It channels the urine into the ureter for transport to the bladder.",
+  artery: "Renal Artery: A branch of the abdominal aorta that supplies oxygen-rich blood to the kidney. It further divides into segmental, interlobar, arcuate, and cortical radiate arteries.",
+  vein: "Renal Vein: The vessel that drains deoxygenated and filtered blood from the kidney into the inferior vena cava, maintaining systemic circulation balance.",
+  ureter: "Ureter: A narrow, muscular tube that connects the renal pelvis to the urinary bladder. It transports urine via peristaltic contractions and prevents backflow through a valve at the bladder end."
+};
 
+// ====== Typing Animation for Kidney Info ======
+const kidneyTextTarget = document.querySelector('.innerText4');
+let kidneyTypingInterval;
+
+function kidneyTypeText(text) {
+  clearInterval(kidneyTypingInterval);
+  kidneyTextTarget.textContent = '';
+  let index = 0;
+
+  kidneyTypingInterval = setInterval(() => {
+    if (index < text.length) {
+      kidneyTextTarget.textContent += text.charAt(index);
+      index++;
+    } else {
+      clearInterval(kidneyTypingInterval);
+    }
+  }, 30); // Typing speed (ms per character)
+}
+
+// ====== External Button Events for Kidney ======
+document.querySelectorAll('.kidney-buttons button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const part = btn.getAttribute('data-part');
+    const info = kidneyInfoMap[part];
+    if (info) kidneyTypeText(info);
+  });
+});
 
