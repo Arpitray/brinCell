@@ -164,6 +164,10 @@ model-viewer {
   box-sizing: border-box;
   margin-top: 1.6%;
 }
+.innerText5
+{
+  margin-top: 5%;
+}
 
 .innerText2 {
   margin-top: 5.6%;
@@ -364,6 +368,14 @@ model-viewer #heart-model {
 .heart-hotspot.visible {
   display: block !important;
 }
+.liver-hotspot {
+  display: none;
+  /* All hotspots hidden by default */
+}
+
+.liver-hotspot.visible {
+  display: block !important;
+}
 
 .kidney-hotspot {
   display: none;
@@ -480,7 +492,7 @@ button:hover {
   flex: 1;
   position: relative;
   height: 700px;
-  margin-left: 8%;
+  margin-left: 5%;
   /* margin-top:4%; */
 }
 
@@ -502,7 +514,7 @@ button:hover {
   font-size: 16px;
   top: 80px;
   box-sizing: border-box;
-
+  /* margin-left:2%; */
   transform-style: preserve-3d;
   background: #fff;
   cursor: pointer;
@@ -547,6 +559,15 @@ button:hover {
   animation-delay: 0.8s;
   z-index: 4;
 }
+.syn_card5 {
+  top: 240px;
+  left: 160px;
+  background: #cc8b86;
+  animation-delay: 1s;
+  z-index: 3;
+}
+
+
 
 .box:hover {
   transition:
@@ -584,7 +605,7 @@ button:hover {
 
 .syn_wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: flex-start;
   border: 1px solid #ccc;
   border-radius: 12px;
@@ -611,6 +632,31 @@ button:hover {
     transform: translateY(0);
   }
 }
+.syn_card.syn_hoverOnly .image,
+.syn_card.syn_hoverOnly p,
+.syn_card.syn_hoverOnly .card-Btn {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease 0.5s, visibility 0.4s ease 0.5s; /* 0.3s delay */
+}
+
+/* Show content on hover with delay */
+.syn_card.syn_hoverOnly:hover .image,
+.syn_card.syn_hoverOnly:hover p,
+.syn_card.syn_hoverOnly:hover .card-Btn {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s; /* Appear instantly once hovered long enough */
+}
+
+/* Optional hover scale effect */
+.syn_card.syn_hoverOnly {
+  transition: transform 0.5s ease;
+}
+
+.syn_card.syn_hoverOnly:hover {
+  transform: scale(1.02);
+}
 
 .syn_card .image {
   /* height:200px; */
@@ -631,7 +677,7 @@ button:hover {
   font-size: 1.5em;
   margin-top: 30px;
   font-weight: 650;
-  padding: 20px;
+  padding: 10px;
 }
 
 .card-Btn {
@@ -659,6 +705,9 @@ button:active {
 
 .syn_card .k {
   color: #381d2a;
+}
+.sync_card .liner1{
+  color:#F08080
 }
 
 .lungs-hotspot {

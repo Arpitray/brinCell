@@ -303,6 +303,10 @@ cards.forEach(card => {
     document.getElementById('kidneySection')
             .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
   });
+       document.getElementById('goToLiver').addEventListener('click', () => {
+    document.getElementById('liverSection')
+            .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+  });
   
   const boxes = document.querySelectorAll('.box');
 
@@ -350,7 +354,6 @@ const lungDataMap = {
 };
 const lungOutputDiv = document.querySelector('.innerText3');
 let lungTypingTimeouts = [];
-
 function clearLungTyping() {
   lungTypingTimeouts.forEach(t => clearTimeout(t));
   lungTypingTimeouts = [];
@@ -447,6 +450,116 @@ externalLungButtons.forEach(button => {
 const resetLungButton = document.querySelector('#reset-lung-camera');
 resetLungButton?.addEventListener('click', () => {
   lungModel.setAttribute('camera-orbit', initialLungOrbit);
+});
+//Liver_Model
+const liverModel = document.querySelector('#liverModel');
+const liverDataMap = {
+  "right-lobe": "The right lobe is the largest lobe of the liver and performs most of its metabolic, detoxification, and synthetic functions. It's located on the right side of the body beneath the diaphragm.",
+  "left-lobe": "The left lobe is smaller and extends across the midline toward the left side of the body. It works with the right lobe in processing nutrients and detoxifying blood.",
+
+  "falciform-ligament": "A thin ligament on the front surface of the liver that separates the right and left lobes. It also connects the liver to the anterior abdominal wall.",
+
+
+  "gall-bladder": "A small greenish sac located under the right lobe of the liver. It stores and concentrates bile, which aids in digestion of fats.",
+
+  "hepatic-arteries": "An external vessel that brings oxygenated blood to the liver from the heart. It is one of the main blood supplies to the liver.",
+
+  "inferior-vena-cava": "A large vein running behind the liver that carries deoxygenated blood from the lower half of the body back to the heart. The liver partially surrounds it."
+};
+
+const liverOutputDiv = document.querySelector('.innerText5');
+let liverTypingTimeouts = [];
+function clearLiverTyping() {
+  liverTypingTimeouts.forEach(t => clearTimeout(t));
+  liverTypingTimeouts = [];
+}
+
+function animateLiverText(content) {
+  liverOutputDiv.innerHTML = ""; 
+  let pos = 0;
+
+  function addNextLiverCharacter() {
+    if (pos < content.length) {
+      liverOutputDiv.innerHTML += content[pos];
+      pos++;
+      liverTypingTimeouts.push(setTimeout(addNextLiverCharacter, 20));
+    }
+  }
+
+  addNextLiverCharacter();
+}
+
+// Event listener
+document.querySelectorAll('[data-part]').forEach(button => {
+  button.addEventListener('click', e => {
+    const partKey = e.currentTarget.getAttribute('data-part');
+    if (liverDataMap[partKey]) {
+      clearLiverTyping();
+      animateLiverText(liverDataMap[partKey]);
+    }
+  });
+});
+
+// Event listener for all buttons with data-part
+document.querySelectorAll('[data-part]').forEach(button => {
+  button.addEventListener('click', e => {
+    const part = e.currentTarget.getAttribute('data-part');
+    if (liverPartsInfo[part]) {
+      cancelTyping();
+      runTyping(liverPartsInfo[part]);
+    }
+  });
+});
+const liverPartPositions = {
+  "right-lobe": "100deg 45deg 0.2m",
+  "left-lobe": "130deg 45deg 0.2m",
+  "falciform-ligament": "140deg 45deg 0.1m",
+  "gall-bladder": "270deg 90deg 0.2m",
+  "hepatic-arteries": "280deg 120deg 0.2m",
+  "inferior-vena-cava": "120deg 45deg 0.6m",
+};
+const initialLiverOrbit = liverModel.getAttribute('camera-orbit');
+
+function highlightLiverPart(button, part) {
+  // Move camera
+  if (liverPartPositions[part]) {
+    liverModel.setAttribute('camera-orbit', liverPartPositions[part]);
+  }
+
+  // Reset any active labels
+  document.querySelectorAll('#liverModel .liver-label')
+    .forEach(label => label.classList.remove('active'));
+  // Highlight only if it's an internal hotspot
+  if (button && button.querySelector('.liver-label')) {
+    button.querySelector('.liver-label').classList.add('active');
+  }
+}
+
+// ==================== HANDLE EXTERNAL BUTTONS ===================
+const externalLiverButtons = document.querySelectorAll('#liver-buttons button');
+externalLiverButtons.forEach(button => {
+  button.addEventListener('click', e => {
+    const part = e.currentTarget.getAttribute('data-part');
+
+    // Move camera
+    highlightLiverPart(null, part);
+
+    // Hide all hotspots
+    document.querySelectorAll('.liver-hotspot')
+      .forEach(hotspot => hotspot.classList.remove('visible'));
+
+    // Show the specific hotspot
+    const targetHotspot = document.querySelector(`.liver-hotspot[data-part="${part}"]`);
+    if (targetHotspot) {
+      targetHotspot.classList.add('visible');
+    }
+  });
+});
+
+// ==================== RESET CAMERA BUTTON ===================
+const resetLiverButton = document.querySelector('#reset-liver-camera');
+resetLiverButton?.addEventListener('click', () => {
+  liverModel.setAttribute('camera-orbit', initialLiverOrbit);
 });
 const headElements = document.querySelectorAll('.head');
 

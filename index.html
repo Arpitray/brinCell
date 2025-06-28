@@ -12,15 +12,14 @@
 </head>
 <body>   
   <div class="syn_wrapper">
-  <!-- Left Side -->
+  <!-- left Side Cards -->
+    <!-- right Side -->
   <div class="syn_left">
     <h1>Welcome to the <b>Visceral Visions!</b></h1>
     <p>Take a closer look inside the human body — an interactive 3D experience featuring highly detailed models of the brain, heart, lungs, and more. Explore, learn, and understand anatomy like never before!</p>
     <!-- <p>We believe that SL should be accessible to everyone regardless of economic means, so we publish our videos for free!</p>/ -->
   </div>
-
-  <!-- Right Side Cards -->
-  <div class="syn_right">
+    <div class="syn_right">
      <h3>Visit the Anatomies</h3>
     <div class="syn_card syn_card1">
       <div class="image">
@@ -31,7 +30,7 @@
          <button id="goToBrain">Explore!</button>
       </div>
     </div>
-    <div class="syn_card syn_card2">
+    <div class="syn_card syn_card2  syn_hoverOnly">
       <div class="image">
         <img src="assets/HeartImage.png" alt="">
       </div>
@@ -40,7 +39,7 @@
          <button id="goToHeart">Explore!</button>
       </div>
     </div>
-    <div class="syn_card syn_card3">
+    <div class="syn_card syn_card3  syn_hoverOnly">
   <div class="image">
         <img src="assets/lung.png" alt="">
       </div>
@@ -49,13 +48,22 @@
          <button id="goToLungs">Explore!</button>
       </div>
     </div>
-    <div class="syn_card syn_card4">
+    <div class="syn_card syn_card4  syn_hoverOnly">
       <div class="image">
         <img src="assets/kidney.png" alt="">
       </div>
       <p><b class="k">Kidneys :</b> are two bean-shaped organs that filter blood, remove waste and extra water as urine, and help regulate blood pressure and body balance.</p>
       <div class="card-Btn">
          <button id="goToKidney">Explore!</button>
+      </div>
+    </div>
+     <div class="syn_card syn_card5  syn_hoverOnly">
+      <div class="image">
+        <img src="assets/liver.png" alt="">
+      </div>
+      <p><b class="li">Liver :</b> The liver is a vital organ responsible for detoxifying the blood, producing bile for digestion, storing energy, and regulating various metabolic functions in the body.</p>
+      <div class="card-Btn">
+         <button id="goToLiver">Explore!</button>
       </div>
     </div>
   </div>
@@ -598,6 +606,8 @@ Where blood filtration begins.
 </div>
   </div>
 </div>
+
+<!-- //Liver_Section// -->
 <div id="liverSection" class="nav">
     <span class="head">
       Liver section
@@ -607,124 +617,136 @@ Where blood filtration begins.
   <div class="box-contain">
       <div  class="box ">
     <div class ="text" >
-      <h2 style="color: #e5383b;">Lungs</h2>
-      <div class="innerText3">
-       The lungs are a pair of spongy, cone-shaped organs located in the chest, protected by the rib cage. They are the primary organs of the respiratory system, allowing the body to breathe by exchanging gases — bringing in oxygen and expelling carbon dioxide.
+      <h2 style="color: #cf7577;">Liver</h2>
+      <div class="innerText5">
+       The liver is a large, reddish-brown organ located in the upper right side of the abdomen. It performs vital functions like filtering blood, producing bile for digestion, storing nutrients, and breaking down toxins and medications.
       </div>
     </div>
   </div>
-  <div id="lung-buttons">
-  <div class="liner1 lungs-Btn">
-      <button class="lungType" data-part="trachea">Trachea</button>
-      <button  class="lungType"  data-part="bronchi">Bronchi</button>
-      <button class="lungType"  data-part="right-lung">Right Lung</button>
+  <div id="liver-buttons">
+  <div class="liner1 ">
+      <button class="liverType" data-part="right-lobe">Right Lobe</button>
+      <button  class="liverType"  data-part="left-lobe">Left Lobe</button>
+      <button class="liverType"  data-part="falciform-ligament">Falciform Ligament</button>
   </div>
-  <div class="liner2 lungs-Btn">
-      <button class="lungType"  data-part="left-lung">Left Lung</button>
-      <button class="lungType"  data-part="apex">Apex</button>
-      <button class="lungType"  data-part="base">Base</button>
+  <div class="liner2 ">
+      <button class="liverType"  data-part="gall-bladder">Gall Bladder</button>
+      <button class="liverType"  data-part="hepatic-arteries">Hepatic Arteries</button>
+      <button class="liverType"  data-part="inferior-vena-cava">Inferior Vena Cava</button>
   </div>
-  <div class="liner3 lungs-Btn">
-        <button class="lungType"  data-part="superior-lobe">Superior Lobe</button>
-        <button class="lungType"  data-part="middle-lobe">Middle Lobe</button>
-        <button class="lungType" data-part="inferior-lobe">Inferior-Lobe</button>
-  </div>
-  <div class="liner4 lungs-Btn">
-      <button class="lungType"  data-part="notch">Cardiac Notch</button>
-      <button id="reset-lung-camera">Reset Camera</button>
+  <div class="liner3 ">
+      <button id="reset-liver-camera">Reset Camera</button>
   </div>
 </div>
   </div>
 
 <model-viewer
   id="liverModel"
-  src="assets/human_liver_bile_duct_and_gallbladder/scene.gltf"
+  src="assets/human_liver_and_gallbladder/scene.gltf"
   camera-controls
   disable-zoom
   disable-pan
 >
-<!-- Trachea -->
-<!-- Trachea -->
-<button slot="hotspot-trachea" class="lungs-hotspot"
-        data-position="-0.01 0.1 -0.01" data-normal="0 0 0"
-        data-part="trachea"
-        onClick="highlightLungPart(this, 'trachea')">
-  <div class="lungs-label">Trachea</div>
+<!-- //right-lobe// -->
+<button slot="hotspot-right-lobe" class="liver-hotspot"
+        data-position="0.06 0.03 0.03" data-normal="0 0 0"
+        data-part="right-lobe"
+        onClick="highlightLiverPart(this, 'right-lobe')">
+  <div class="liver-label">Right Lobe</div>
 </button>
 
-<!-- Bronchi -->
-<button slot="hotspot-bronchi" class="lungs-hotspot"
-        data-position="-0.01 -0.046 -0.01" data-normal="0 1 0"
-        data-part="bronchi"
-        onClick="highlightLungPart(this, 'bronchi')">
-  <div class="lungs-label">  Bronchi  </div>
+<!-- left-lobe -->
+<button slot="hotspot-left-lobe" class="liver-hotspot"
+        data-position="0.03 0.05 -0.1" data-normal="0 0 0"
+        data-part="left-lobe"
+        onClick="highlightLiverPart(this, 'left-lobe')">
+  <div class="liver-label">left Lobe</div>
 </button>
 
-<!-- Right-Lung -->
-<button slot="hotspot-right-lung" class="lungs-hotspot"
-        data-position="-0.2 -0.046 0.08" data-normal="0 1 0"
-        data-part="right-lung"
-        onClick="highlightLungPart(this, 'right-lung')">
-  <div class="lungs-label">Right Lung</div>
+<!-- Falciform Ligament-->
+<button slot="hotspot-falciform-ligament" class="liver-hotspot"
+        data-position="0.06 0.03 -0.04" data-normal="0 0 0"
+        data-part="falciform-ligament"
+        onClick="highlightLiverPart(this, 'falciform-ligament')">
+  <div class="liver-label">Falciform Ligament</div>
 </button>
 
-<!-- left-lung -->
-<button slot="hotspot-left-lung" class="lungs-hotspot"
-        data-position="0.2 -0.046 0.08" data-normal="0 1 0"
-        data-part="left-lung"
-        onClick="highlightLungPart(this, 'left-lung')">
-  <div class="lungs-label">Left-Lung</div>
+<!-- gall-bladder -->
+<button slot="hotspot-gall-bladder" class="liver-hotspot"
+        data-position="-0.01 -0.04 0.03" data-normal="0 0 0"
+        data-part="gall-bladder"
+        onClick="highlightLiverPart(this, 'gall-bladder')">
+  <div class="liver-label">Gall bladder</div>
+</button>
+<!-- Hepatic Arteries -->
+<button slot="hotspot-hepatic-arteries" class="liver-hotspot"
+        data-position="-0.01 -0.01 -0.02" data-normal="0 0 0"
+        data-part="hepatic-arteries"
+        onClick="highlightLiverPart(this, 'hepatic-arteries')">
+  <div class="liver-label">Hepatic-Ateries</div>
 </button>
 
-<!-- Apex -->
-<button slot="hotspot-apex" class="lungs-hotspot"
-        data-position="-0.06 0.1 -0.04" data-normal="0 1 0"
-        data-part="apex"
-        onClick="highlightLungPart(this, 'apex')">
-  <div class="lungs-label">Apex</div>
-</button>
-
-<!-- Base -->
-<button slot="hotspot-base" class="lungs-hotspot"
-        data-position="-0.13 -0.2 0.1" data-normal="0 1 0"
-        data-part="base"
-        onClick="highlightLungPart(this, 'base')">
-  <div class="lungs-label">Base</div>
-</button>
-
-<!-- Superior Lobe-->
-<button slot="hotspot-superior-lobe" class="lungs-hotspot"
-        data-position="-0.18 0.06 -0.04" data-normal="0 1 0"
-        data-part="superior-lobe"
-        onClick="highlightLungPart(this, 'superior-lobe')">
-  <div class="lungs-label">Superior Lobe</div>
-</button>
-
-<!-- middle -lobe -->
-<button slot="hotspot-middle-lobe" class="lungs-hotspot"
-        data-position="-0.18 -0.1 -0.04" data-normal="0 1 0"
-        data-part="middle-lobe"
-        onClick="highlightLungPart(this, 'middle-lobe')">
-  <div class="lungs-label">Middle Lobe</div>
-</button>
-
-<!-- inferior-lobe-->
-<button slot="hotspot-inferior-lobe" class="lungs-hotspot"
-        data-position="-0.18 -0.2 -0.01" data-normal="0 1 0"
-        data-part="inferior-lobe"
-        onClick="highlightLungPart(this, 'inferior-lobe')">
-  <div class="lungs-label">Inferior-Lobe</div>
-</button>
-
-<!-- Cardiac Notch -->
-<button slot="hotspot-notch" class="lungs-hotspot"
-        data-position="0.13 -0.1 0.02" data-normal="0 1 0"
-        data-part="notch"
-        onClick="highlightLungPart(this, 'notch')">
-  <div class="lungs-label">Cardiac Notch</div>
+<!-- Inferior Vena Cava -->
+<button slot="hotspot-inferior-vena-cava" class="liver-hotspot"
+        data-position="-0.04 0.12 -0.03" data-normal="0 1 0"
+        data-part="inferior-vena-cava"
+        onClick="highlightLiverPart(this, 'inferior-vena-cava')">
+  <div class="liver-label">Inferior Vena Cava</div>
 </button>
 </model-viewer>
   </div>
+    <div class="card-grid">
+  <div class="card">
+    <img src="assets/caudate lobe.png" alt="">
+    <div><b>Caudate Lobe : </b> A small lobe on the posterior side, near the inferior vena cava.
+</div>
+  </div>
+  <div class="card">
+    <img src="assets/quadate lobe.avif" alt="">
+    <div><b>  Quadrate Lobe : </b>Found near the gallbladder; important for surface anatomy.
+</div>
+  </div>
+  <div class="card">
+    <img src="assets/porta hepatis.jpg" alt="">
+    <div><b> Porta Hepatis: </b> The “hilum” of the liver — entry/exit point for the hepatic artery, portal vein, and bile duct.
+</div>
+  </div>
+  <div class="card big">
+    <img src="assets/heatic veins.png" alt="" >
+    <div><b> Hepatic Portal Vein
+: </b>Brings nutrient-rich blood from the intestines into the liver for filtering.
+
+
+</div>
+  </div>
+  <div class="card big">
+    <img src="assets/bile duct.jpg" alt="" style ="height:250">
+    <div><b> Bile Ducts : </b>Carry bile out of the liver toward the gallbladder and intestine.
+</div>
+  </div>
+   <div class="card big">
+    <img src="assets/ligamentum teres.jpg" alt="" style ="height:250">
+    <div><b>Ligamentum Teres : </b>Remnant of the fetal umbilical vein; found in the lower edge of the falciform ligament.
+</div>
+  </div>
+     <div class="card big">
+    <img src="assets/triangular ligaments.png" alt="" style ="height:250">
+    <div><b>Coronary Ligament & Triangular Ligaments : </b>Attach the liver to the diaphragm (superior and lateral stabilizers).
+</div>
+  </div>
+     <div class="card big">
+    <img src="assets/nephron.jpg" alt="" style ="height:250">
+    <div><b> Nephrons : </b>Microscopic functional units (about 1 million per kidney) that perform filtration.
+Includes glomerulus, Bowman's capsule, tubules, and loop of Henle.
+</div>
+  </div>
+     <div class="card big">
+    <img src="assets/glomerular.png" alt="" style ="height:250">
+    <div><b> Glomerulus : </b>A tiny capillary network inside each nephron.
+Where blood filtration begins.
+</div>
+  </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>
