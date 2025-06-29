@@ -868,96 +868,57 @@ function animateBones() {
 boneImg.onload = () => {
   animateBones();
 };
-const sandCanvasSyn = document.getElementById('sandCanvasSyn');
-const sandCtxSyn = sandCanvasSyn.getContext('2d');
+  const follower = document.getElementById("footerFollower");
+    const footer = document.getElementById("footer-area");
 
-const synWrapper = document.querySelector('.syn_wrapper');
-sandCanvasSyn.width = synWrapper.offsetWidth;
-sandCanvasSyn.height = synWrapper.offsetHeight;
+    let mouseX = 0;
+    let mouseY = 0;
+    let followerX = 0;
+    let followerY = 0;
+    let isActive = false;
 
-let mouseSyn = { x: null, y: null };
-const imageSyn = new Image();
-imageSyn.src = 'assets/skull.png'; // Replace with your image
+    // Change this value to control chase speed (0.05 = slow, 0.3 = fast)
+    const chaseSpeed = 0.05;
 
-const particlesSyn = [];
-const totalParticlesSyn = 50;
+    footer.addEventListener("mouseenter", () => {
+      isActive = true;
+      follower.style.opacity = "1";
+    });
 
-for (let i = 0; i < totalParticlesSyn; i++) {
-  let x = Math.random() * sandCanvasSyn.width;
-  let y = Math.random() * sandCanvasSyn.height;
-  particlesSyn.push({
-    x: x,
-    y: y,
-    originalX: x,
-    originalY: y,
-    size: Math.random() * 30 + 20,
-    angle: Math.random() * 360
-  });
-}
+    footer.addEventListener("mouseleave", () => {
+      isActive = false;
+      follower.style.opacity = "0";
+    });
 
-synWrapper.addEventListener('mousemove', function (e) {
-  const rect = synWrapper.getBoundingClientRect();
-  mouseSyn.x = e.clientX - rect.left;
-  mouseSyn.y = e.clientY - rect.top;
-});
+    document.addEventListener("mousemove", (e) => {
+      if (!isActive) return;
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
 
-function drawImageParticleSyn(p) {
-  sandCtxSyn.save();
-  sandCtxSyn.translate(p.x, p.y);
-  sandCtxSyn.rotate((p.angle * Math.PI) / 180);
-  sandCtxSyn.drawImage(imageSyn, -p.size / 2, -p.size / 2, p.size, p.size);
-  sandCtxSyn.restore();
-}
-
-function animateSandSyn() {
-  sandCtxSyn.clearRect(0, 0, sandCanvasSyn.width, sandCanvasSyn.height);
-
-  for (let p of particlesSyn) {
-    const dx = mouseSyn.x - p.x;
-    const dy = mouseSyn.y - p.y;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-
-    if (dist < 80) {
-      const angle = Math.atan2(dy, dx);
-      const force = (80 - dist) / 80;
-      const pushX = Math.cos(angle) * force * 4;
-      const pushY = Math.sin(angle) * force * 4;
-      p.x -= pushX;
-      p.y -= pushY;
-    } else {
-      p.x += (p.originalX - p.x) * 0.05;
-      p.y += (p.originalY - p.y) * 0.05;
+    function animateFollower() {
+      if (isActive) {
+        followerX += (mouseX - followerX) * chaseSpeed;
+        followerY += (mouseY - followerY) * chaseSpeed;
+        follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+      }
+      requestAnimationFrame(animateFollower);
     }
 
-    drawImageParticleSyn(p);
+    animateFollower();
+   const footer2 = document.getElementById('footer-area');
+
+  function toggleFooterOnScroll() {
+    const rect = footer2.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    // Show if footer enters view
+    if (rect.top < windowHeight - 100 && rect.bottom > 0) {
+      footer2.classList.add('visible');
+    } else {
+      footer2.classList.remove('visible');
+    }
   }
 
-  requestAnimationFrame(animateSandSyn);
-}
-
-imageSyn.onload = () => {
-  animateSandSyn();
-};
-const skull = document.getElementById("skull-follower");
-
-let targetX = 0, targetY = 0;
-let currentX = window.innerWidth / 2;
-let currentY = window.innerHeight / 2;
-
-const chaseSpeed = 0.02; // 👈 Change this: smaller = slower, e.g. 0.05, faster = 0.2
-
-document.addEventListener("mousemove", (e) => {
-  targetX = e.clientX;
-  targetY = e.clientY;
-});
-
-function animateSkull() {
-  currentX += (targetX - currentX) * chaseSpeed;
-  currentY += (targetY - currentY) * chaseSpeed;
-
-  skull.style.transform = `translate(${currentX}px, ${currentY}px)`;
-
-  requestAnimationFrame(animateSkull);
-}
-
-animateSkull();
+  window.addEventListener('scroll', toggleFooterOnScroll);
+  window.addEventListener('load', toggleFooterOnScroll);

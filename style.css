@@ -352,32 +352,6 @@ button {
   margin-top: 4%;
 }
 
-.head2 {
-  font-family: Arial, sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-
-  padding: 10px;
-
-  color: #000;
-  background-color: #dad7cd;
-  background-image: radial-gradient(#00000022 1px, transparent 1px);
-  background-size: 40px 40px;
-
-  border: 2px solid #000;
-
-  /* Drop shadow for the "sticker" effect */
-  box-shadow: 3px 3px 0px #000;
-
-  text-decoration: none;
-  display: inline-block;
-
-  /* Hover effect */
-  transition: all 0.1s ease-in;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
 #heart-model .heart-label {
   padding: 4px 8px;
   border-radius: 4px;
@@ -846,11 +820,138 @@ button:active {
 {
   margin-top: 7%;
 }
-footer{
-  background-image: url(assets/footertest.png);
-  height:35vh;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  /* margin:0px 100px 0px 100px; */
+    footer {
+      position: relative;
+      background: white;
+      /* padding: 100px 0; */
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .puzzle {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .letter {
+      font-size: 24px;
+      padding: 10px 15px;
+      border-radius: 8px;
+      background: #222;
+      color: #f0f0f0;
+      transition: all 0.6s ease;
+      transform: translate(
+        calc(-100px + 200px * var(--rand-x)),
+        calc(-100px + 200px * var(--rand-y))
+      );
+      opacity: 0.4;
+    }
+
+    footer:hover .letter {
+      transform: translate(0, 0);
+      opacity: 1;
+      background: #467599;
+      color: #fff;
+    }
+
+    .letter:nth-child(even) {
+      transition-delay: 0.2s;
+    }
+
+    .letter:nth-child(odd) {
+      transition-delay: 0.1s;
+    }
+    #footer-area
+    {
+        transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); /* bounce */
+  transition-delay: 0.2s; /* small delay before it begins */
+    }
+    
+    footer {
+      height: 500px;
+      background-color: #111;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+        background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+
+    }
+
+    /* Follower dot */
+    .footer-follower {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #00f0ff;
+      box-shadow: 0 0 10px #00f0ff;
+      pointer-events: none;
+      transform: translate(-30%, -30%);
+      opacity: 0;
+      z-index: 9999;
+      transition: opacity 0.6s ease;
+    }
+    #footer-area.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.origami-contact
+{
+  height:30vh;
+  width:30vw;
+  /* display: block; */
+
+}
+input{
+  display:inline-block
+}
+.item
+{
+  margin: 10px 20px;
+  height:5vh;
+  margin:30px 100px;
+  width:21vw;
+  text-align: center;
+}
+.floating-poly {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: rgba(255,255,255,0.1);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  animation: float 10s infinite linear;
+  top: 20%;
+  left: 10%;
+}
+
+.triangle2 {
+  top: 70%;
+  left: 80%;
+  animation-delay: 3s;
+  position: absolute;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(15deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+input, textarea {
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+  border: none;
+  background: white;
+  padding: 10px 15px;
+  font-family: inherit;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+input:hover, textarea:hover {
+  transform: translateY(-2px);
 }
