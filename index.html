@@ -10,21 +10,17 @@
 <script type="module" src="https://unpkg.com/@google/model-viewer@3/dist/model-viewer.min.js"></script>
 
 </head>
-<body>  
+<body> 
   <canvas id="sandCanvas"></canvas> 
-  <!-- <img src="assets/veins.png" class="cursor-chase" id="cursorChase" /> -->
+  
 
   <div class="syn_wrapper">
-    <canvas id="sandCanvasSyn"></canvas>
-  <!-- left Side Cards -->
-    <!-- right Side -->
   <div class="syn_left">
-    <h1><b class="changeColor scribble" style="color: #BC554E;">Visceral Visions!</b></h1>
-    <p>Take a closer look inside the human body — an interactive 3D experience featuring highly detailed models of the brain, heart, lungs, and more. Explore, learn, and understand anatomy like never before!</p>
-    <!-- <p>We believe that SL should be accessible to everyone regardless of economic means, so we publish our videos for free!</p>/ -->
+    <h1 class="hover-bounce"><span>V</span><span>I</span><span>S</span><span>C</span><span>E</span><span>R</span><span>A</span><span>L</span>     <span style="margin-left:15px;">  V</span><span>I</span><span>S</span><span>I</span><span>O</span><span>N</span><span>S</span></h1>
+    <p style="color: #181f1c;">Take a closer look inside the human body — an interactive 3D experience featuring highly detailed models of the brain, heart, lungs, and more. Explore, learn, and understand anatomy like never before!</p>
   </div>
     <div class="syn_right">
-     <h3>Visit the Anatomies</h3>
+     <!-- <h3>Visit the Anatomies</h3> -->
     <div class="syn_card syn_card1">
       <div class="image">
         <img src="assets/brain.png" alt="">
@@ -123,13 +119,13 @@
 >
   <!-- Hotspots for each part -->
   <button class="hotspot" slot="hotspot-frontal"
-          data-position='-0.0 1 -0.4 ' data-normal="0 0 0 "
+          data-position='-0.2 0.8 0.7 ' data-normal="0 0 0 "
           onclick="highlightPart(this, 'frontal')">
     <div class="label">Frontal Lobe</div>
   </button>
 
   <button class="hotspot" slot="hotspot-parietal"
-          data-position="0 0.8 0.7" data-normal="0 0 0"
+          data-position="-0.4 0.95 -0.1" data-normal="0 0 0"
           onclick="highlightPart(this, 'parietal')">
     <div class="label">Parietal Lobe</div>
   </button>
@@ -141,18 +137,18 @@
   </button>
 
   <button class="hotspot" slot="hotspot-occipital"
-          data-position="-0.1 0.5 -0.7 " data-normal="0 0 0"
+          data-position="-0.1 0.7 -0.4 " data-normal="0 0 0"
           onclick="highlightPart(this, 'occipital')">
     <div class="label">Occipital Lobe</div>
   </button>
 
   <button class="hotspot" slot="hotspot-cerebellum"
-          data-position="0.1 0.3 -0.5" data-normal="0 0 0"
+          data-position="0.1 0.37 -0.4" data-normal="0 0 0"
           onclick="highlightPart(this, 'cerebellum')">
     <div class="label">Cerebellum</div>
   </button>
     <button class="hotspot" slot="hotspot-stem"
-          data-position=" -0.0.5 0.1 0.7" data-normal="0 0 0"
+          data-position=" -0.0.5 0.1 3" data-normal="0 0 0"
           onclick="highlightPart(this, 'stem')">
     <div class="label">Brain stem</div>
     
@@ -228,7 +224,7 @@
 
 <!-- Valves -->
 <button class="heart-hotspot" slot="hotspot-Left anterior descending coronary artery" data-part="Left anterior descending coronary artery"
-        data-position="0.25 -1 -0.25" data-normal="0 0 1" onClick="highlightHeartPart(this, 'tricuspid-valve')">
+        data-position="0.2 -1 -0.27" data-normal="0 0 1" onClick="highlightHeartPart(this, 'tricuspid-valve')">
     <div class="label">Left anterior descending coronary artery</div>
 </button>
 <button class="heart-hotspot" slot="hotspot-pulmonary-trunk" data-part="pulmonary-trunk"
@@ -753,7 +749,7 @@ Where blood filtration begins.
   </div>
       <div class="card big">
     <img src="assets/coronary ligament.jpg" alt="" style ="height:250">
-    <div><b>Coronary Ligaments : </b>A peritoneal fold that connects the liver to the diaphragm, forming the boundary of the liver’s bare area and helping anchor it in place.
+    <div><b>Coronary Ligaments : </b>A peritoneal fold that connects the liver to the diaphragm, forming the boundary of the liver's bare area and helping anchor it in place.
 </div>
   </div>
      <div class="card big">
@@ -769,7 +765,7 @@ Where blood filtration begins.
   </div>
 <div class="layout">
 <model-viewer  id="stomach-model"
-  src="assets/stomach/stomach2.glb"
+  src="assets/stomach/scene.gltf"
   camera-controls
   disable-zoom
   disable-pan
@@ -874,6 +870,9 @@ The stomach is a muscular, J-shaped organ that breaks down food using acids and 
 </div>
   </div>
 </div>
+<footer>
+
+</footer>
     <script src="script.js"></script>
 </body>
 </html>

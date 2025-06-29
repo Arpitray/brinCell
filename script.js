@@ -38,11 +38,11 @@ function moveToPart(part) {
   switch (part) {
     case 'frontal':
       viewer.cameraTarget = '0 1 0';
-      viewer.cameraOrbit = '160deg 40deg 2.3m';
+      viewer.cameraOrbit = '10deg 50deg 2m';
       break;
     case 'parietal':
       viewer.cameraTarget = '0 0.1 0';
-      viewer.cameraOrbit = '0deg 60deg 2.3m';
+      viewer.cameraOrbit = '-90deg 40deg 2.3m';
       break;
     case 'temporal':
       viewer.cameraTarget = '0.1 -0.05 0';
@@ -50,11 +50,11 @@ function moveToPart(part) {
       break;
     case 'occipital':
       viewer.cameraTarget = '-0.1 0.05 -0.1';
-      viewer.cameraOrbit = '180deg 95deg 2.3m';
+      viewer.cameraOrbit = '180deg 40deg 2.3m';
       break;
     case 'cerebellum':
       viewer.cameraTarget = '0 -0.15 -0.15';
-      viewer.cameraOrbit = '-180deg 120deg 2.3m';
+      viewer.cameraOrbit = '-180deg 100deg 2.3m';
       break;
     case 'stem':
       viewer.cameraTarget = '0 -0.15 -0.15';
@@ -810,7 +810,7 @@ canvas.height = window.innerHeight;
 let mouse = { x: null, y: null };
 const totalBones = 150;
 const boneImg = new Image();
-boneImg.src = 'assets/backdemo2.png'; // Your dog bone image
+boneImg.src = 'assets/backdemo2.png';
 
 const bones = [];
 
@@ -865,8 +865,6 @@ function animateBones() {
 
   requestAnimationFrame(animateBones);
 }
-
-// Start after image is loaded
 boneImg.onload = () => {
   animateBones();
 };
@@ -882,7 +880,7 @@ const imageSyn = new Image();
 imageSyn.src = 'assets/skull.png'; // Replace with your image
 
 const particlesSyn = [];
-const totalParticlesSyn = 30;
+const totalParticlesSyn = 50;
 
 for (let i = 0; i < totalParticlesSyn; i++) {
   let x = Math.random() * sandCanvasSyn.width;
@@ -940,5 +938,26 @@ function animateSandSyn() {
 imageSyn.onload = () => {
   animateSandSyn();
 };
+const skull = document.getElementById("skull-follower");
 
+let targetX = 0, targetY = 0;
+let currentX = window.innerWidth / 2;
+let currentY = window.innerHeight / 2;
 
+const chaseSpeed = 0.02; // 👈 Change this: smaller = slower, e.g. 0.05, faster = 0.2
+
+document.addEventListener("mousemove", (e) => {
+  targetX = e.clientX;
+  targetY = e.clientY;
+});
+
+function animateSkull() {
+  currentX += (targetX - currentX) * chaseSpeed;
+  currentY += (targetY - currentY) * chaseSpeed;
+
+  skull.style.transform = `translate(${currentX}px, ${currentY}px)`;
+
+  requestAnimationFrame(animateSkull);
+}
+
+animateSkull();
