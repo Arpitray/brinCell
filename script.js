@@ -1,4 +1,3 @@
-
 // Get the viewer
 //Brain_model//
 const viewer = document.querySelector('#brainModel');
@@ -312,29 +311,6 @@ cards.forEach(card => {
             .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
   });
 
-//   const cursorChase = document.getElementById("cursorChase");
-// let mouseX = 0;
-// let mouseY = 0;
-// let chaseX = 0;
-// let chaseY = 0;
-
-// document.addEventListener("mousemove", (e) => {
-//   mouseX = e.clientX;
-//   mouseY = e.clientY;
-// });
-
-// function animateChase() {
-//   // Move a bit toward the mouse
-//   chaseX += (mouseX - chaseX) * 0.08; // 0.08 controls the delay/smoothness
-//   chaseY += (mouseY - chaseY) * 0.08;
-
-//   cursorChase.style.transform = `translate(${chaseX}px, ${chaseY}px)`;
-
-//   requestAnimationFrame(animateChase);
-// }
-
-// animateChase();
-
   const boxes = document.querySelectorAll('.box');
 
 boxes.forEach(box => {
@@ -608,7 +584,7 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, {
-  threshold: 0.3 // Trigger when 10% of card is visible
+  threshold: 0.1 // Trigger when 10% of card is visible
 });
 
 // Observe each card
@@ -834,7 +810,7 @@ canvas.height = window.innerHeight;
 let mouse = { x: null, y: null };
 const totalBones = 150;
 const boneImg = new Image();
-boneImg.src = 'assets/bone2.png'; // Your dog bone image
+boneImg.src = 'assets/backdemo2.png'; // Your dog bone image
 
 const bones = [];
 

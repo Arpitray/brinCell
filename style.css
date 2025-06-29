@@ -7,7 +7,10 @@
   box-sizing: border-box;
   font-family: "Walter Turncoat", cursive;
 }
-
+.changeColor
+{
+  font-size: 1.4em;
+}
 /* body {
   /* background-image: url(assets/mesh2.png); */
 
@@ -79,7 +82,7 @@ justify-content: center;
 
 .box {
   font-family: "Walter Turncoat", cursive;
- /* background-image: url(assets/textures/meshtest16.png); */
+ /* background-image: url(assets/textures/meshtest14.png); */
  background-size: cover;
  background-repeat: no-repeat;
   padding: 20px;
@@ -88,10 +91,10 @@ justify-content: center;
   height: 50vh;
   position: relative;
    background-image:
-    radial-gradient(#00000033 1px, transparent 1px); 
-   background-size: 20px 20px; 
+    radial-gradient(#00000033 1px, transparent 1px);  
+    /* background-size: 20px 20px;  */
   box-sizing: border-box;
-  overflow: hidden;
+   overflow: hidden; 
   border-radius: 15px;
   transition:
     transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
@@ -105,7 +108,8 @@ model-viewer {
   height: 77vh;
   pointer-events: auto;
   /* background-color: #f5ebe0; */
-  background-image: url(assets/textures/meshtest10.png);
+   background-image:
+    radial-gradient(#00000033 1px, transparent 1px);  
   /* background-size: 40px 40px; */
   background-size: cover;
   background-repeat: no-repeat;
@@ -670,7 +674,7 @@ button:hover {
   display: flex;
   justify-content: space-evenly;
   align-items: flex-start;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-radius: 12px;
   padding: 30px;
   margin: 40px;
@@ -678,7 +682,8 @@ button:hover {
   transform: translateY(30px);
   animation: wrapperFadeIn 0.5s ease forwards;
   height: 95vh;
-  background-image: url(assets/textures/meshtest2.png);
+     background-image:
+    radial-gradient(#00000033 1px, transparent 1px);  
   background-size: cover;
   background-repeat: no-repeat;
 }
