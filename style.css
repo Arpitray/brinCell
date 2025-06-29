@@ -1,26 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Jersey+10&family=Jersey+15&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Jersey+10&family=Jersey+15&family=Walter+Turncoat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jersey+10&family=Jersey+15&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Space+Grotesk:wght@300..700&family=Walter+Turncoat&display=swap');
 
+/* Magicpattern */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Walter Turncoat", cursive;
 }
 
-body {
-  background-color: #2e2c2b;
-  background-image:
-    linear-gradient(#adb5bd 2px, transparent 2px),
-    linear-gradient(90deg, #adb5bd 2px, transparent 2px);
-  background-size: 60px 60px;
+/* body {
+  /* background-image: url(assets/mesh2.png); */
 
   /* IMPORTANT: Enables the scrolling animation */
-  animation: scrollGrid 5s linear infinite;
+  /* animation: scrollGrid 10s linear infinite; */
   /* overflow: hidden; */
-  overflow-x: hidden;
-  font-family: "Walter Turncoat", cursive;
-  cursor: url(http://www.rw-designer.com/cursor-extern.php?id=2853);
+  /* overflow-x: hidden; */
+  /* font-family: "Walter Turncoat", cursive; */
+  /* cursor: url(http://www.rw-designer.com/cursor-extern.php?id=2853); */
 
+#sandCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* background-color: #f4e4c1; Light sand background */
+  background-image: url(assets/textures/meshtest11.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 @keyframes scrollGrid {
@@ -32,6 +38,13 @@ body {
     background-position: 0 -60px;
   }
 }
+#sandCanvasSyn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
 
 .nav {
   font-size: 2rem;
@@ -40,6 +53,13 @@ body {
   padding: 15px;
   font-family: "Walter Turncoat", cursive;
 }
+.syn_left h1{
+width:35vw;
+display: flex;
+justify-content: center;
+
+}
+
 
 .head {
   background-color: blue;
@@ -54,19 +74,22 @@ body {
   width: 100%;
   box-sizing: border-box;
   overflow: hidden;
+
 }
 
 .box {
   font-family: "Walter Turncoat", cursive;
-  background-color: #f1faee;
+ /* background-image: url(assets/textures/meshtest16.png); */
+ background-size: cover;
+ background-repeat: no-repeat;
   padding: 20px;
-  border: 3px solid #000;
+  /* border: 3px solid #000; */
   width: 75vh;
   height: 50vh;
   position: relative;
-  background-image:
-    radial-gradient(#00000033 1px, transparent 1px);
-  background-size: 20px 20px;
+   background-image:
+    radial-gradient(#00000033 1px, transparent 1px); 
+   background-size: 20px 20px; 
   box-sizing: border-box;
   overflow: hidden;
   border-radius: 15px;
@@ -81,10 +104,12 @@ model-viewer {
   width: 48vw;
   height: 77vh;
   pointer-events: auto;
-  background-color: #f5ebe0;
-  background-image: radial-gradient(#00000022 1px, transparent 1px);
-  background-size: 40px 40px;
-  border: 2px solid black;
+  /* background-color: #f5ebe0; */
+  background-image: url(assets/textures/meshtest10.png);
+  /* background-size: 40px 40px; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* border: 2px solid black; */
   border-radius: 15px;
   margin-top: 2%;
 }
@@ -103,7 +128,7 @@ model-viewer {
 /* .hotspot {
   background: transparent;
   border: none;
-  cursor: pointer;
+  cursor: pointer;f
 } */
 
 .label {
@@ -114,7 +139,7 @@ model-viewer {
   font-size: 1.1rem;
   border: 2px solid transparent;
   transition: all 0.3s;
-  width: 8rem;
+  width: 11rem;
 }
 
 .label.active {
@@ -193,13 +218,16 @@ button {
   font-weight: 600;
   padding: 6px 20px;
   color: #000;
-  background-color: #fff;
+  background-color: #ebf2fa;
   border: 2px solid #000;
   box-shadow: 3px 3px 0px #000;
   text-decoration: none;
   display: inline-block;
   transition: all 0.1s ease-in;
   cursor: pointer;
+    background-image:
+    radial-gradient(#00000033 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 .buttons:hover {
@@ -308,7 +336,7 @@ button {
 .heading {
   width: 100%;
   text-align: center;
-  color: #e9ecef;
+  color: #010d2f;
 }
 
 .heading h1 {
@@ -380,6 +408,12 @@ model-viewer #heart-model {
 .kidney-hotspot {
   display: none;
 }
+.stomach-hotspot {
+  display: none;
+}
+.stomach-hotspot.visible {
+  display: block !important;
+}
 
 .kidney-hotspot.visible {
   display: block !important;
@@ -414,30 +448,30 @@ button:hover {
 }
 
 .liner1 {
-  margin-top: 2%;
+  margin-top: 4%;
   text-align: center;
 }
 
 .liner2 {
-  margin-top: 2%;
+  margin-top: 4%;
   text-align: center;
 }
 
 .liner3 {
-  margin-top: 2%;
+  margin-top: 4%;
   text-align: center;
 }
 
 .liner4 {
-  margin-top: 2%;
+  margin-top: 4%;
 }
 
 
 .resetButton {
   /* text-align: center; */
-  margin-top: 2%;
+  margin-top: 4%;
   width: 100%;
-  margin-left: 170px;
+  margin-left: 260px;
 }
 
 .box-contain {
@@ -492,7 +526,7 @@ button:hover {
   flex: 1;
   position: relative;
   height: 700px;
-  margin-left: 5%;
+  margin-left: 2%;
   /* margin-top:4%; */
 }
 
@@ -509,7 +543,7 @@ button:hover {
   border-radius: 12px;
   border: 1px solid #000;
   width: 35vw;
-  height: 60vh;
+  height: 62vh;
   padding: 20px;
   font-size: 16px;
   top: 80px;
@@ -524,51 +558,80 @@ button:hover {
     transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
     box-shadow 0.7s ease,
     opacity 1s ease;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
+/* .cursor-chase {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px; /* adjust size 
+  height: auto;
+  pointer-events: none; /* so it doesn't block clicks 
+  z-index: 9999;
+  transition: transform 0.1s ease;
+}*/
+
 
 .syn_card1 {
-  top: 90px;
+  top: 60px;
   left: 0px;
-  background: #ffd1d1;
+  /* background: #ffd1d1; */
+  background-image: url(assets/textures/meshtest.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   animation-delay: 0.2s;
   z-index: 7;
   /* color:#f4d58d; */
 }
 
 .syn_card2 {
-  top: 120px;
+  top: 90px;
   left: 40px;
-  background: #F08080;
+  /* background: #F08080; */
+  background-image: url(assets/textures/meshtest4.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   animation-delay: 0.4s;
   z-index: 6;
 }
 
 .syn_card3 {
-  top: 160px;
+  top: 120px;
   left: 80px;
-  background: #d9dcd6;
+   background-image: url(assets/textures/meshtest8.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   animation-delay: 0.6s;
   z-index: 5;
 }
 
 .syn_card4 {
-  top: 200px;
+  top: 150px;
   left: 120px;
-  background: #c6ac8f;
+     background-image: url(assets/textures/meshtest12.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   animation-delay: 0.8s;
   z-index: 4;
 }
 .syn_card5 {
-  top: 240px;
+  top: 180px;
   left: 160px;
-  background: #cc8b86;
+   background-image: url(assets/textures/meshtest14.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   animation-delay: 1s;
   z-index: 3;
 }
-
-
-
+.syn_card6 {
+  top: 210px;
+  left: 200px;
+    background-image: url(assets/textures/meshtest15.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation-delay: 1s;
+  z-index: 2;
+}
 .box:hover {
   transition:
     transform 0.5s cubic-bezier(0.25, 1, 0.5, 1) 2s,
@@ -615,7 +678,9 @@ button:hover {
   transform: translateY(30px);
   animation: wrapperFadeIn 0.5s ease forwards;
   height: 95vh;
-  background-color: #faedcd;
+  background-image: url(assets/textures/meshtest2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* Keyframes */
@@ -700,7 +765,7 @@ button:active {
 }
 
 .syn_card .h {
-  color: #d8572a;
+  color: #812102;
 }
 
 .syn_card .k {
@@ -708,6 +773,10 @@ button:active {
 }
 .sync_card .liner1{
   color:#F08080
+}
+.syn_card .s
+{
+  color:#8d0801
 }
 
 .lungs-hotspot {
@@ -747,4 +816,8 @@ button:active {
 
 .innerText4 {
   margin-top: 5%;
+}
+.innerText6
+{
+  margin-top: 7%;
 }

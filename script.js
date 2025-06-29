@@ -307,7 +307,34 @@ cards.forEach(card => {
     document.getElementById('liverSection')
             .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
   });
-  
+        document.getElementById('goTostomach').addEventListener('click', () => {
+    document.getElementById('stomachSection')
+            .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+  });
+
+//   const cursorChase = document.getElementById("cursorChase");
+// let mouseX = 0;
+// let mouseY = 0;
+// let chaseX = 0;
+// let chaseY = 0;
+
+// document.addEventListener("mousemove", (e) => {
+//   mouseX = e.clientX;
+//   mouseY = e.clientY;
+// });
+
+// function animateChase() {
+//   // Move a bit toward the mouse
+//   chaseX += (mouseX - chaseX) * 0.08; // 0.08 controls the delay/smoothness
+//   chaseY += (mouseY - chaseY) * 0.08;
+
+//   cursorChase.style.transform = `translate(${chaseX}px, ${chaseY}px)`;
+
+//   requestAnimationFrame(animateChase);
+// }
+
+// animateChase();
+
   const boxes = document.querySelectorAll('.box');
 
 boxes.forEach(box => {
@@ -698,4 +725,244 @@ document.querySelectorAll('.kidney-buttons button').forEach(btn => {
     if (info) kidneyTypeText(info);
   });
 });
+//Stomach_Model//
+const stomachModel = document.querySelector('#stomach-model');
+const stomachPartPositions = {
+  "esophagus": "90deg 75deg 0.6m",
+  "outer-muscle-layer": "120deg 90deg 0.04m",
+  "middle-muscle-layer": "120deg 110deg 0.04m",
+  "inner-muscle-layer": "120deg 120deg 0.04m",
+  "mucosa": "90deg 100deg 0.04m",
+  "duodenum": "70deg 100deg 0.04m",
+};
+const initialstomachOrbit = stomachModel.getAttribute('camera-orbit');
+
+function highlightstomachPart(button, part) {
+  // Move camera
+  if (stomachPartPositions[part]) {
+    stomachModel.setAttribute('camera-orbit', stomachPartPositions[part]);
+  }
+
+  // Reset any active labels
+  document.querySelectorAll('#stomach-model .stomach-label')
+    .forEach(label => label.classList.remove('active'));
+
+  // Highlight only if it's an internal hotspot
+  if (button && button.querySelector('.stomach-label')) {
+    button.querySelector('.stomach-label').classList.add('active');
+  }
+}
+
+// ==================== HANDLE EXTERNAL BUTTONS ===================
+const externalstomachButtons = document.querySelectorAll('.stomach-buttons button');
+externalstomachButtons.forEach(button => {
+  button.addEventListener('click', e => {
+    const part = e.currentTarget.getAttribute('data-part');
+
+    // Move camera
+    highlightstomachPart(null, part);
+
+    // Hide all hotspots
+    document.querySelectorAll('.stomach-hotspot')
+      .forEach(hotspot => hotspot.classList.remove('visible'));
+
+    // Show the specific hotspot
+    const targetHotspot = document.querySelector(`.stomach-hotspot[data-part="${part}"]`);
+    if (targetHotspot) {
+      targetHotspot.classList.add('visible');
+    }
+  });
+});
+
+// ==================== RESET CAMERA BUTTON ===================
+const resetstomachButton = document.querySelector('#reset-stomach-camera');
+resetstomachButton?.addEventListener('click', () => {
+  stomachModel.setAttribute('camera-orbit', initialstomachOrbit);
+
+  // Hide all hotspots
+  document.querySelectorAll('.stomach-hotspot')
+    .forEach(hotspot => hotspot.classList.remove('visible'));
+});
+const stomachInfoMap = {
+  "esophagus": "The esophagus is a muscular tube that connects the throat to the stomach. It uses rhythmic contractions called peristalsis to push food down into the stomach for digestion.",
+  
+  "outer-muscle-layer": "The outermost longitudinal muscle layer of the stomach wall. It contracts to help push and mix the stomach's contents, working with the inner layers to enable powerful churning motions.",
+  
+  "middle-muscle-layer": "Also known as the circular muscle layer, it wraps around the stomach and plays a key role in grinding food and controlling the flow of chyme into the intestines.",
+  
+  "inner-muscle-layer": "The innermost oblique muscle layer unique to the stomach. It provides extra strength for mechanical digestion by enhancing mixing and crushing of food.",
+  
+  "mucosa": "This is the innermost lining of the stomach. It contains glands that secrete digestive enzymes, hydrochloric acid, and mucus to break down food and protect the stomach walls.",
+  
+  "duodenum": "The first section of the small intestine, directly connected to the stomach. It receives partially digested food (chyme), bile from the liver, and enzymes from the pancreas for further digestion."
+};
+
+
+// ====== Typing Animation for Kidney Info ======
+const stomachTextTarget = document.querySelector('.innerText6');
+let stomachTypingInterval;
+
+function stomachTypeText(text) {
+  clearInterval(stomachTypingInterval);
+  stomachTextTarget.textContent = '';
+  let index = 0;
+
+  stomachTypingInterval = setInterval(() => {
+    if (index < text.length) {
+      stomachTextTarget.textContent += text.charAt(index);
+      index++;
+    } else {
+      clearInterval(stomachTypingInterval);
+    }
+  }, 30); // Typing speed (ms per character)
+}
+
+// ====== External Button Events for Kidney ======
+document.querySelectorAll('.stomach-buttons button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const part = btn.getAttribute('data-part');
+    const info = stomachInfoMap[part];
+    if (info) stomachTypeText(info);
+  });
+});
+const canvas = document.getElementById('sandCanvas');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let mouse = { x: null, y: null };
+const totalBones = 150;
+const boneImg = new Image();
+boneImg.src = 'assets/bone2.png'; // Your dog bone image
+
+const bones = [];
+
+for (let i = 0; i < totalBones; i++) {
+  let x = Math.random() * canvas.width;
+  let y = Math.random() * canvas.height;
+  bones.push({
+    x: x,
+    y: y,
+    originalX: x,
+    originalY: y,
+    size: Math.random() * 30 + 15,
+    angle: Math.random() * 360
+  });
+}
+
+document.addEventListener('mousemove', function(e) {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+function drawBone(bone) {
+  ctx.save();
+  ctx.translate(bone.x, bone.y);
+  ctx.rotate((bone.angle * Math.PI) / 180);
+  ctx.drawImage(boneImg, -bone.size / 2, -bone.size / 2, bone.size, bone.size);
+  ctx.restore();
+}
+
+function animateBones() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let bone of bones) {
+    const dx = mouse.x - bone.x;
+    const dy = mouse.y - bone.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+
+    if (dist < 100) {
+      const angle = Math.atan2(dy, dx);
+      const force = (100 - dist) / 100;
+      const pushX = Math.cos(angle) * force * 4;
+      const pushY = Math.sin(angle) * force * 4;
+      bone.x -= pushX;
+      bone.y -= pushY;
+    } else {
+      bone.x += (bone.originalX - bone.x) * 0.05;
+      bone.y += (bone.originalY - bone.y) * 0.05;
+    }
+
+    drawBone(bone);
+  }
+
+  requestAnimationFrame(animateBones);
+}
+
+// Start after image is loaded
+boneImg.onload = () => {
+  animateBones();
+};
+const sandCanvasSyn = document.getElementById('sandCanvasSyn');
+const sandCtxSyn = sandCanvasSyn.getContext('2d');
+
+const synWrapper = document.querySelector('.syn_wrapper');
+sandCanvasSyn.width = synWrapper.offsetWidth;
+sandCanvasSyn.height = synWrapper.offsetHeight;
+
+let mouseSyn = { x: null, y: null };
+const imageSyn = new Image();
+imageSyn.src = 'assets/skull.png'; // Replace with your image
+
+const particlesSyn = [];
+const totalParticlesSyn = 30;
+
+for (let i = 0; i < totalParticlesSyn; i++) {
+  let x = Math.random() * sandCanvasSyn.width;
+  let y = Math.random() * sandCanvasSyn.height;
+  particlesSyn.push({
+    x: x,
+    y: y,
+    originalX: x,
+    originalY: y,
+    size: Math.random() * 30 + 20,
+    angle: Math.random() * 360
+  });
+}
+
+synWrapper.addEventListener('mousemove', function (e) {
+  const rect = synWrapper.getBoundingClientRect();
+  mouseSyn.x = e.clientX - rect.left;
+  mouseSyn.y = e.clientY - rect.top;
+});
+
+function drawImageParticleSyn(p) {
+  sandCtxSyn.save();
+  sandCtxSyn.translate(p.x, p.y);
+  sandCtxSyn.rotate((p.angle * Math.PI) / 180);
+  sandCtxSyn.drawImage(imageSyn, -p.size / 2, -p.size / 2, p.size, p.size);
+  sandCtxSyn.restore();
+}
+
+function animateSandSyn() {
+  sandCtxSyn.clearRect(0, 0, sandCanvasSyn.width, sandCanvasSyn.height);
+
+  for (let p of particlesSyn) {
+    const dx = mouseSyn.x - p.x;
+    const dy = mouseSyn.y - p.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+
+    if (dist < 80) {
+      const angle = Math.atan2(dy, dx);
+      const force = (80 - dist) / 80;
+      const pushX = Math.cos(angle) * force * 4;
+      const pushY = Math.sin(angle) * force * 4;
+      p.x -= pushX;
+      p.y -= pushY;
+    } else {
+      p.x += (p.originalX - p.x) * 0.05;
+      p.y += (p.originalY - p.y) * 0.05;
+    }
+
+    drawImageParticleSyn(p);
+  }
+
+  requestAnimationFrame(animateSandSyn);
+}
+
+imageSyn.onload = () => {
+  animateSandSyn();
+};
+
 

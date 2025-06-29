@@ -10,12 +10,16 @@
 <script type="module" src="https://unpkg.com/@google/model-viewer@3/dist/model-viewer.min.js"></script>
 
 </head>
-<body>   
+<body>  
+  <canvas id="sandCanvas"></canvas> 
+  <!-- <img src="assets/veins.png" class="cursor-chase" id="cursorChase" /> -->
+
   <div class="syn_wrapper">
+    <canvas id="sandCanvasSyn"></canvas>
   <!-- left Side Cards -->
     <!-- right Side -->
   <div class="syn_left">
-    <h1>Welcome to the <b>Visceral Visions!</b></h1>
+    <h1><b style="color: #BC554E;">Visceral Visions!</b></h1>
     <p>Take a closer look inside the human body — an interactive 3D experience featuring highly detailed models of the brain, heart, lungs, and more. Explore, learn, and understand anatomy like never before!</p>
     <!-- <p>We believe that SL should be accessible to everyone regardless of economic means, so we publish our videos for free!</p>/ -->
   </div>
@@ -25,7 +29,7 @@
       <div class="image">
         <img src="assets/brain.png" alt="">
       </div>
-      <p><b class="b">Brain:</b> The body's command center, controlling thoughts, emotions, and movement, made up of billions of interconnected neurons.</p>
+      <p><b style="color: #d29c59;">Brain:</b> The body's command center, controlling thoughts, emotions, and movement, made up of billions of interconnected neurons.</p>
       <div class="card-Btn">
          <button id="goToBrain">Explore!</button>
       </div>
@@ -34,7 +38,7 @@
       <div class="image">
         <img src="assets/HeartImage.png" alt="">
       </div>
-      <p><b class="h">Heart:</b> A powerful muscular organ that pumps blood throughout the body, delivering oxygen and nutrients to every cell .</p>
+      <p><b style="color: #3F94B3;">Heart:</b> A powerful muscular organ that pumps blood throughout the body, delivering oxygen and nutrients to every cell .</p>
       <div class="card-Btn">
          <button id="goToHeart">Explore!</button>
       </div>
@@ -52,7 +56,7 @@
       <div class="image">
         <img src="assets/kidney.png" alt="">
       </div>
-      <p><b class="k">Kidneys :</b> are two bean-shaped organs that filter blood, remove waste and extra water as urine, and help regulate blood pressure and body balance.</p>
+      <p><b style="color: #AF4D2A;">Kidneys :</b> are two bean-shaped organs that filter blood, remove waste and extra water as urine, and help regulate blood pressure and body balance.</p>
       <div class="card-Btn">
          <button id="goToKidney">Explore!</button>
       </div>
@@ -61,9 +65,18 @@
       <div class="image">
         <img src="assets/liver.png" alt="">
       </div>
-      <p><b class="li">Liver :</b> The liver is a vital organ responsible for detoxifying the blood, producing bile for digestion, storing energy, and regulating various metabolic functions in the body.</p>
+      <p><b style="color: #DA6B5A;">Liver :</b> The liver is a vital organ responsible for detoxifying the blood, producing bile for digestion, storing energy, and regulating various metabolic functions in the body.</p>
       <div class="card-Btn">
          <button id="goToLiver">Explore!</button>
+      </div>
+    </div>
+         <div class="syn_card syn_card6  syn_hoverOnly">
+      <div class="image">
+        <img src="assets/pet.png" alt="">
+      </div>
+      <p><b style="color: #EE450E;">Stomach :</b> The stomach is a muscular, hollow organ located in the upper abdomen. It stores food temporarily and breaks it down both mechanically through muscular contractions and chemically using acids and enzymes.</p>
+      <div class="card-Btn">
+         <button id="goTostomach">Explore!</button>
       </div>
     </div>
   </div>
@@ -275,7 +288,7 @@
   </div>
   </div>
 
-<div class="heading2">
+<div class="heading">
   <h1>Other importants parts</h1>
 </div>
 <div class="card-grid">
@@ -437,7 +450,7 @@
 </button>
 </model-viewer>
   </div>
-  <div class="heading2">
+  <div class="heading">
   <h1>Other importants parts</h1>
 </div>
   <div class="card-grid">
@@ -528,9 +541,9 @@
   <div class="box-contain">
       <div class="box ">
     <div class ="text" >
-      <h2 style="color: #d8572a;">Heart</h2>
+      <h2 style="color: #d8572a;">Kidney</h2>
       <div class="innerText4">
-       The heart is a muscular, cone-shaped organ located slightly to the left of the chest. It acts as the pump for the circulatory system, continuously circulating blood throughout the body to supply oxygen and nutrients to organs and remove waste.
+       The kidneys are two bean-shaped organs located on either side of the spine. They filter waste products and excess fluids from the blood to form urine, help regulate blood pressure, maintain electrolyte balance, and support red blood cell production. They play a vital role in maintaining the body’s overall fluid and chemical stability.
       </div>
     </div>
   </div>
@@ -552,7 +565,7 @@
 </div>
 </div>
   </div>
-    <div class="heading2">
+    <div class="heading">
   <h1>Other importants parts</h1>
 </div>
   <div class="card-grid">
@@ -695,6 +708,9 @@ Where blood filtration begins.
 </button>
 </model-viewer>
   </div>
+  <div class="heading">
+  <h1>Other importants parts</h1>
+</div>
     <div class="card-grid">
   <div class="card">
     <img src="assets/caudate lobe.png" alt="">
@@ -714,7 +730,8 @@ Where blood filtration begins.
   <div class="card big">
     <img src="assets/heatic veins.png" alt="" >
     <div><b> Hepatic Portal Vein
-: </b>Brings nutrient-rich blood from the intestines into the liver for filtering.
+</b>Brings nutrient-rich blood from the intestines into the liver for filtering.
+
 
 
 </div>
@@ -731,19 +748,129 @@ Where blood filtration begins.
   </div>
      <div class="card big">
     <img src="assets/triangular ligaments.png" alt="" style ="height:250">
-    <div><b>Coronary Ligament & Triangular Ligaments : </b>Attach the liver to the diaphragm (superior and lateral stabilizers).
+    <div><b>Triangular Ligaments : </b>A peritoneal fold that attaches the liver to the diaphragm, helping stabilize its position within the abdominal cavity.
+</div>
+  </div>
+      <div class="card big">
+    <img src="assets/coronary ligament.jpg" alt="" style ="height:250">
+    <div><b>Coronary Ligaments : </b>A peritoneal fold that connects the liver to the diaphragm, forming the boundary of the liver’s bare area and helping anchor it in place.
 </div>
   </div>
      <div class="card big">
-    <img src="assets/nephron.jpg" alt="" style ="height:250">
-    <div><b> Nephrons : </b>Microscopic functional units (about 1 million per kidney) that perform filtration.
-Includes glomerulus, Bowman's capsule, tubules, and loop of Henle.
+    <img src="assets/base area.jpg" alt="" style ="height:250">
+    <div><b>  Base Area : </b>A region on the posterior superior surface not covered by peritoneum — in direct contact with the diaphragm.
 </div>
   </div>
-     <div class="card big">
-    <img src="assets/glomerular.png" alt="" style ="height:250">
-    <div><b> Glomerulus : </b>A tiny capillary network inside each nephron.
-Where blood filtration begins.
+</div>
+<div id="stomachSection" class="nav">
+    <span class="head">
+      Stomach section
+    </span>
+  </div>
+<div class="layout">
+<model-viewer  id="stomach-model"
+  src="assets/stomach/scene.gltf"
+  camera-controls
+  disable-zoom
+  disable-pan
+>
+<!-- Main Chambers -->
+  <!-- Hotspots -->
+  <button slot="hotspot-esophagus" class="stomach-hotspot"
+           data-position="0 0.09 0.02" data-normal="0 0 0"
+           data-part="esophagus" onClick="stomachHighlightPart(this, 'esophagus')">
+    <div class="label">Esophagus</div>
+  </button>
+
+  <button slot="hotspot-outer-muscle-layer" class="stomach-hotspot"
+           data-position="0.012 0.049 -0.02" data-normal="0 0 0"
+           data-part="outer-muscle-layer" onClick="stomachHighlightPart(this, 'outer-muscle-layer')">
+    <div class="label">Outer Muscle Layer</div>
+  </button>
+  <button slot="hotspot-middle-muscle-layer" class="stomach-hotspot"
+           data-position="0.012 0.041 -0.02" data-normal="0 0 0"
+           data-part="middle-muscle-layer" onClick="stomachHighlightPart(this, 'middle-muscle-layer')">
+    <div class="label">Middle Muscle Layer</div>
+  </button>
+
+  <button slot="hotspot-inner-muscle-layer" class="stomach-hotspot"
+           data-position="0.01 0.034 -0.02" data-normal="0 0 0"
+           data-part="inner-muscle-layer" onClick="stomachHighlightPart(this, 'inner-muscle-layer')">
+    <div class="label">Inner Muscle Layer</div>
+  </button>
+
+  <button slot="hotspot-mucosa" class="stomach-hotspot"
+           data-position="-0.01 0.03 -0.01" data-normal="0 0 0"
+           data-part="mucosa" onClick="stomachHighlightPart(this, 'mucosa')">
+    <div class="label">Mucosa</div>
+  </button>
+
+  <button slot="hotspot-duodenum" class="stomach-hotspot"
+           data-position="0 0.032 0.02" data-normal="0 0 0"
+           data-part="duodenum" onClick="stomachHighlightPart(this, 'duodenum')">
+    <div class="label">Duodenum</div>
+  </button>
+
+</model-viewer>
+  <div class="box-contain">
+      <div class="box ">
+    <div class ="text" >
+      <h2 style="color: #d8572a;">Stomach</h2>
+      <div class="innerText6">
+The stomach is a muscular, J-shaped organ that breaks down food using acids and enzymes. It churns food into a semi-liquid form called chyme before passing it to the small intestine for further digestion.
+      </div>
+    </div>
+  </div>
+<div class="stomach-buttons">
+  <div class="liner1">
+      <button data-part="esophagus">Esophagus</button>
+  <button data-part="outer-muscle-layer">Outer Muscle Layer</button>
+  <button data-part="middle-muscle-layer">middle Muscle Layer</button>
+  </div>
+  <div class="liner2">
+      <button data-part="inner-muscle-layer">Inner Muscle Layer</button>
+  <button data-part="mucosa">Mucosa</button>
+  <button data-part="duodenum">Duodenum</button>
+  </div>
+  <div class="liner3">
+    <button id="reset-stomach-camera">Reset Camera</button>
+  </div>
+  
+</div>
+</div>
+  </div>
+    <div class="heading">
+  <h1>Other importants parts</h1>
+</div>
+  <div class="card-grid">
+  <div class="card">
+    <img src="assets/cardia_real.jpg" alt="">
+    <div><b>Cardia : </b>Where the esophagus connects to the stomach; controls food entry via the lower esophageal sphincter.
+</div>
+  </div>
+  <div class="card">
+    <img src="assets/fundus.jpg" alt="">
+    <div><b> Fundus : </b>The upper curved portion of the stomach that stores undigested food and gases.
+</div>
+  </div>
+  <div class="card">
+    <img src="assets/body.jpg" alt="">
+    <div><b>Body: </b> The central and largest region of the stomach, where most mixing and digestion occur.
+</div>
+  </div>
+  <div class="card big">
+    <img src="assets/pylorus.jpg" alt="" >
+    <div><b> Pylorus : </b> The lower section that connects to the duodenum; regulates the passage of digested food into the small intestine.
+  </div>
+  </div>
+  <div class="card big">
+    <img src="assets/rugue.jpg" alt="" style ="height:250">
+    <div><b>Rugae : </b> Folds in the stomach lining that allow expansion as the stomach fills with food.
+</div>
+  </div>
+   <div class="card big">
+    <img src="assets/gastric glands.avif" alt="" style ="height:250">
+    <div><b> Gastric Glands : </b>Microscopic glands in the mucosa that secrete digestive enzymes, acid, and mucus.
 </div>
   </div>
 </div>
