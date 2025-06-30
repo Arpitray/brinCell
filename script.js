@@ -922,3 +922,20 @@ boneImg.onload = () => {
 
   window.addEventListener('scroll', toggleFooterOnScroll);
   window.addEventListener('load', toggleFooterOnScroll);
+  //   document.getElementById("myForm").addEventListener("submit", function(e) {
+  //   e.preventDefault(); // 🔒 Prevent page refresh
+  //   // ✅ Handle the form data here
+  //   console.log("Form submitted without page reload!");
+  // });
+   const form = document.getElementById("myForm");
+
+  form.addEventListener("submit", function () {
+    // Show animated toast
+    const toast = document.getElementById("toast");
+    toast.classList.add("show");
+
+    // Auto hide toast
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 3000);
+  });

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
 <!-- Latest Model Viewer as of 2025-06 -->
 <script type="module" src="https://unpkg.com/@google/model-viewer@3/dist/model-viewer.min.js"></script>
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
 
 </head>
 <body> 
@@ -875,15 +877,23 @@ The stomach is a muscular, J-shaped organ that breaks down food using acids and 
     <section class="origami-contact">
   <div class="form-container">
     <div class="floating-poly"></div>
-<div class="floating-poly triangle2"></div>
-    <h1>Found bug or any Suggestions?</h1>
-    <h2>Hit me up!</h2>
-    <form>
-      <input class="item" style="display: block;" type="text" placeholder="Your Name" required>
-      <input class="item" style="display: block;" type="email" placeholder="Your Email" required>
-      <textarea class="item" style="display: block;" placeholder="Your Message" required></textarea>
-      <button class="item" type="submit" class="origami-btn">Send</button>
-    </form>
+<div class="floating-poly triangle2">
+
+</div>
+<div class="floating-poly triangle3"></div>
+    <h1 style="font-size: 2.3em; color:#2b2d42;">Found bug or any Suggestions?</h1>
+    <h2><span>H</span><span>i</span><span>t</span> <span>M</span><span>e</span>  <span>U</span><span>p</span><span>!</span></h2>
+   <form id="myForm" action="https://formsubmit.co/rayarpit72@gmail.com" method="POST">
+  <input class="item" type="text" name="name" placeholder="Your Name" required>
+  <input class="item" type="email" name="email" placeholder="Your Email" required>
+  <textarea style="height: 6vh;" class="item" name="message" placeholder="Your Message" required></textarea>
+  
+  <!-- Optional: disable captcha and redirect to same page -->
+   <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="http://127.0.0.1:5500/">
+  <button class="item send" type="submit">Send</button> 
+</form>
+<div id="toast">Thanks for the message
   </div>
 </section>
   </footer>
