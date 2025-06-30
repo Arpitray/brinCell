@@ -821,7 +821,7 @@ button:active {
 }
     footer {
       position: relative;
-      background: white;
+      /* background: white; */
       /* padding: 100px 0; */
       overflow: hidden;
       text-align: center;
@@ -869,9 +869,9 @@ button:active {
     }
     
     footer {
-      height: 400px;
+      height: 350px;
       background-color: #111;
-      color: #fff;
+
       position: relative;
       z-index: 1;
         background: rgba(255, 255, 255, 0.1);
@@ -913,20 +913,21 @@ input{
 }
 .item
 {
-  margin: 10px 20px;
+  margin: 5px 10px;
   height:5vh;
-  margin:13px 100px;
+  margin:5px 60px;
   width:21vw;
   text-align: center;
 }
 input, textarea {
-  clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+  /* clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%); */
   border: none;
   background: white;
   padding: 10px 15px;
   font-family: inherit;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.2s;
+  border-radius: 9px;
 }
 input:hover, textarea:hover {
   transform: translateY(-2px);
@@ -937,7 +938,7 @@ input:hover, textarea:hover {
   position: absolute;
   top:80%;
   height:12%;
-  left:6%;
+  left:8%;
 
 }
 #toast {
@@ -961,4 +962,133 @@ input:hover, textarea:hover {
   visibility: visible;
   opacity: 1;
   bottom: 50px;
+}
+.icons
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:10px;
+}
+.social
+{
+  position: absolute;
+    /* margin-bottom: 157px; */
+    top: 35%;
+    padding: 20px;
+    left: 45%;
+}
+.github:hover,.linkdin:hover{
+  opacity:0.8;
+}
+#goToTop
+{
+  margin-top:12%;
+  cursor: pointer;
+  width:5vw;
+  margin-left:90px;
+}
+#goToTop:hover
+{
+   animation: bounce 0.6s ease-out;
+ transform: scale(1.2) rotate(-5deg);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+.sitemap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  /* margin-top: 2rem; */
+  position:absolute;
+  top:1px;
+  right:6%;
+}
+.sitemap-icon {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.sitemap-icon img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+  animation: float 3s ease-in-out infinite;
+}
+
+/* FUN ANIMATIONS */
+.sitemap-icon:hover img {
+  animation: bounce 0.6s ease-out;
+  transform: scale(1.2) rotate(-5deg);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+/* BOUNCE ON HOVER */
+@keyframes bounce {
+  0%   { transform: translateY(0) scale(1.1); }
+  30%  { transform: translateY(-8px) scale(1.2); }
+  60%  { transform: translateY(4px) scale(1.1); }
+  100% { transform: translateY(0) scale(1.2) rotate(-5deg); }
+}
+
+/* SLOW FLOAT WHEN IDLE */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Animated Label */
+.sitemap-label {
+  opacity: 0;
+  position: absolute;
+  top: 10px;
+  /* left:22px; */
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 13px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  transform: translateY(10px) scale(0.95);
+  white-space: nowrap;
+}
+
+.sitemap-icon:hover .sitemap-label {
+  opacity: 1;
+  transform: translateY(0px) scale(1);
+}
+/* Optional: Tooltip arrow */
+.sitemap-label::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+.footerSite1
+{
+  margin-top:8%;
+  display: flex;
+  justify-content: space-around;
+  width:15vw;
+}
+.footerSite2
+{
+  margin-top:8%;
+  display: flex;
+  justify-content: space-around;
+  width:15vw;
+}
+.footerSite3
+{
+  margin-top:8%;
+  display: flex;
+  justify-content: space-around;
+  width:15vw;
 }

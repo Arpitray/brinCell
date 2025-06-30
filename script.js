@@ -290,7 +290,15 @@ cards.forEach(card => {
     document.getElementById('brainSection')
             .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
   });
+    document.getElementById('goBrain').addEventListener('click', () => {
+    document.getElementById('brainSection')
+            .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+  });
     document.getElementById('goToHeart').addEventListener('click', () => {
+    document.getElementById('heartSection')
+            .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+  });
+      document.getElementById('goHeart').addEventListener('click', () => {
     document.getElementById('heartSection')
             .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
   });
@@ -298,7 +306,16 @@ cards.forEach(card => {
     document.getElementById('lungsSection')
             .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
   });
+     document.getElementById('goLungs').addEventListener('click', () => {
+    document.getElementById('lungsSection')
+            .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+  });
+  
      document.getElementById('goToKidney').addEventListener('click', () => {
+    document.getElementById('kidneySection')
+            .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+  });
+       document.getElementById('gokidney').addEventListener('click', () => {
     document.getElementById('kidneySection')
             .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
   });
@@ -306,11 +323,22 @@ cards.forEach(card => {
     document.getElementById('liverSection')
             .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
   });
+         document.getElementById('goLiver').addEventListener('click', () => {
+    document.getElementById('liverSection')
+            .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+  });
         document.getElementById('goTostomach').addEventListener('click', () => {
     document.getElementById('stomachSection')
             .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
   });
-
+          document.getElementById('goStomach').addEventListener('click', () => {
+    document.getElementById('stomachSection')
+            .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+  });
+         document.getElementById('goToTop').addEventListener('click', () => {
+    document.querySelector('.syn_wrapper')
+            .scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+  });
   const boxes = document.querySelectorAll('.box');
 
 boxes.forEach(box => {
@@ -321,8 +349,8 @@ boxes.forEach(box => {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotateX = ((y - centerY) / centerY) * 14; // Max 8° tilt
-    const rotateY = ((x - centerX) / centerX) * 14;
+    const rotateX = ((y - centerY) / centerY) * 10; // Max 8° tilt
+    const rotateY = ((x - centerX) / centerX) * 10;
 
     box.style.transition = 'none';
     box.style.transform = `rotateX(${ -rotateX }deg) rotateY(${ rotateY }deg) scale(1.04)`;
@@ -939,3 +967,4 @@ boneImg.onload = () => {
       toast.classList.remove("show");
     }, 3000);
   });
+  
