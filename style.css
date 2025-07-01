@@ -7,45 +7,18 @@
   box-sizing: border-box;
   font-family: "Walter Turncoat", cursive;
 }
-/* body {
-  /* background-image: url(assets/mesh2.png); */
-
-  /* IMPORTANT: Enables the scrolling animation */
-  /* animation: scrollGrid 10s linear infinite; */
-  /* overflow: hidden; */
-  /* overflow-x: hidden; */
-  /* font-family: "Walter Turncoat", cursive; */
-  /* cursor: url(http://www.rw-designer.com/cursor-extern.php?id=2853); */
-
 #sandCanvas {
   position: fixed;
   top: 0;
   left: 0;
   z-index: -1;
-  /* background-color: #f4e4c1; Light sand background */
+  background-color: #f4e4c1;  
   background-image: url(assets/finalback3.jpeg);
   background-size: cover;
   background-repeat: repeat;
-
-}
-
-@keyframes scrollGrid {
-  from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: 0 -60px;
-  }
-}
-#sandCanvasSyn {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
+  height:100%;
+  width:100%;
+} 
 .nav {
   font-size: 2rem;
   font-weight: 700;
@@ -323,7 +296,8 @@ button {
 }
 
 .card img {
-  height: 242px;
+  height: 24.2vh;
+  width:15.2vw;
   background-size: contain;
   padding: 10px 5px;
   border-radius: 8px;
@@ -485,7 +459,7 @@ button:hover {
 
 .syn_left p {
   font-size: 2em;
-  line-height: 1.7;
+  /* line-height: 1.7; */
   font-weight: 600;
   padding: 15px;
   margin-top: 270px;
@@ -540,7 +514,7 @@ button:hover {
   cursor: pointer;
   padding: 2px;
   font-size: 1.4em;
-  color:#FDF6EC
+  color:#FDF6EC;
 }
 .hover-bounce
 {
@@ -669,6 +643,7 @@ span:hover {
   -webkit-backdrop-filter: blur(9px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.15);
+  position:relative;
 }
 
 
@@ -729,7 +704,7 @@ span:hover {
 }
 
 .syn_card img {
-  height: 250px;
+  height: 25vh;
   background-size: contain;
   text-align: center;
   /* width:100%; */
@@ -1091,4 +1066,42 @@ input:hover, textarea:hover {
   display: flex;
   justify-content: space-around;
   width:15vw;
+}
+header{
+  display:none;
+}
+/* media queries */
+@media (max-width: 768px)
+{
+  .syn_wrapper
+  {
+    height:95%;
+    width:85%;
+    position:relative;
+    margin:5px;
+    background-color: gray;
+  }
+
+ .head2
+ {
+  display: none;
+ }
+#sandCanvas
+{
+display: none;
+background-color: blue;
+}
+.hover-bounce
+{
+ height:20px;
+}
+.syn_card{
+  display: none;
+}
+header
+{
+  display: block;
+  height:70px;
+  font-size:1.2em
+}
 }
