@@ -443,7 +443,7 @@ button:hover {
 
 .syn_left {
   flex: 1;
-  max-width: 45%;
+  width: 45%;
 }
 .syn_left h1 {
   font-size: 48px;
@@ -1080,7 +1080,20 @@ header{
     position:relative;
     margin:5px;
     background-color: gray;
+    display: block;
   }
+  .syn_left p
+  {
+    display: block;
+    margin-top:0;
+    font-size:1.1em;
+    
+  }
+  .syn_left 
+  {
+    width: 80vw;
+  }
+  
 
  .head2
  {
@@ -1104,4 +1117,92 @@ header
   height:70px;
   font-size:1.2em
 }
+  .syn_card {
+    height: 150px;
+    width: 150px; /* override 35vw */
+    padding: 10px;
+    font-size: 14px;
+  }
+  .syn_right
+  {
+    width:100%;
+        position: static; /* or relative */
+    display: grid;
+    /* width:150px; */
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(3,100px);
+    gap:10px;
+  }
+.syn_card img
+{
+  height:80px;
+}
+.syn_card p
+{
+  display: none;
+}
+.syn_card button
+{
+  height:40px;
+  font-size: 1rem;
+  margin:0;
+  position:static;
+  /* padding:0; */
+
+  /* display: block; */
+}
+.syn_card1
+{
+  height:150px;
+  width:150px;
+  display: block;
+  position: static;
+}
+.syn_card2
+{
+  height:150px;
+  width:150px;
+  display: block;
+  position: static;
+}
+.syn_card3
+{
+  height:150px;
+  width:150px;
+  display: block;
+  position: static;
+  margin-top: 50px;
+}
+.syn_card4
+{
+  height:150px;
+  width:150px;
+  display: block;
+  position: static;
+  margin-top: 50px;
+}
+.syn_card5
+{
+  height:150px;
+  width:150px;
+  display: block;
+  position: static;
+  margin-top: 100px;
+}
+.syn_card6
+{
+  height:150px;
+  width:150px;
+  display: block;
+  position: static;
+  margin-top: 100px;
+}
+.syn_card.syn_hoverOnly .image,
+.syn_card.syn_hoverOnly p,
+.syn_card.syn_hoverOnly .card-Btn
+{
+  visibility: visible;
+  opacity: 1;
+}
+
 }
