@@ -1097,8 +1097,9 @@ header{
   {
     display: block;
     margin-top:0;
-    font-size:1.1em;
-    text-align:center
+    font-size:1.3em;
+    text-align:center;
+    line-height: 1.4;
     
   }
   .form-container
@@ -1138,6 +1139,12 @@ header
   font-size:1.2em;
   text-align: center;
   font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color:#fdf6ec
 }
   .syn_card {
     height: 150px;
