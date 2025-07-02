@@ -1073,14 +1073,25 @@ header{
 /* media queries */
 @media (max-width: 768px)
 {
+  body
+  {
+      background-image: url(assets/finalback3.jpeg);
+  background-size: cover;
+  background-repeat: repeat;
+  }
   .syn_wrapper
   {
     /* height:95%; */
     width:97%;
     position:relative;
     margin:5px;
-    background-color: gray;
+    /* background-color: gray; */
     display: block;
+      background: rgba(255, 255, 255, 0.04); /* soft light tint */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(9px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   }
   .syn_left p
   {
@@ -1090,6 +1101,11 @@ header{
     text-align:center
     
   }
+  .form-container
+  {
+    display: none;
+  }
+
   .syn_left 
   {
     width: 80vw;
@@ -1103,7 +1119,10 @@ header{
 #sandCanvas
 {
 display: none;
-background-color: blue;
+/* background-color: blue; */
+background-repeat: repeat;
+height: 100vh;
+width:100%;
 }
 .hover-bounce
 {
@@ -1147,7 +1166,7 @@ header
 }
 .syn_card button
 {
-  height:40px;
+  /* height:40px; */
   font-size: 1rem;
   margin:0;
   position:static;
@@ -1243,7 +1262,7 @@ text-align: center;
 .label
 {
   font-size: 1rem;
-  height:40px;
+  /* height:40px; */
 }
 .liner1 button
 {
@@ -1260,6 +1279,27 @@ text-align: center;
 .liner4 button
 {
   padding:8px;
+}
+.footSite{
+  display: flex;
+  justify-content: space-evenly;
+  width:100%;
+}
+.sitemap{
+  position: absolute;
+  /* bottom:3%; */
+  left:8%;
+}
+.social {
+    position: absolute;
+    /* margin-bottom: 157px; */
+    top: 42%;
+    padding: 18px;
+    left: 9%;
+}
+#goToTop
+{
+  margin-left:127px;
 }
 
 }
