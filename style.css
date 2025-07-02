@@ -1075,8 +1075,8 @@ header{
 {
   .syn_wrapper
   {
-    height:95%;
-    width:85%;
+    /* height:95%; */
+    width:97%;
     position:relative;
     margin:5px;
     background-color: gray;
@@ -1087,6 +1087,7 @@ header{
     display: block;
     margin-top:0;
     font-size:1.1em;
+    text-align:center
     
   }
   .syn_left 
@@ -1115,7 +1116,9 @@ header
 {
   display: block;
   height:70px;
-  font-size:1.2em
+  font-size:1.2em;
+  text-align: center;
+  font-weight: 600;
 }
   .syn_card {
     height: 150px;
@@ -1129,9 +1132,10 @@ header
         position: static; /* or relative */
     display: grid;
     /* width:150px; */
-    grid-template-columns: repeat(2, 150px);
+    grid-template-columns: repeat(2, 193px);
     grid-template-rows: repeat(3,100px);
     gap:10px;
+    margin-top:50px;
   }
 .syn_card img
 {
@@ -1203,6 +1207,59 @@ header
 {
   visibility: visible;
   opacity: 1;
+}
+.box{
+  width:97vw;
+  font-size:0.8rem;
+
+}
+.card img
+{
+  width:50vw;
+}
+.layout{
+  display: block;
+}
+button{
+    /* height:40px; */
+  font-size: 0.8rem;
+}
+model-viewer
+{
+width:99vw;
+height:50vh;
+text-align: center;
+}
+.card-grid
+{
+  display: block;
+  
+  /* line-height: 15px; */
+}
+.card
+{
+  margin-top:10px;
+}
+.label
+{
+  font-size: 1rem;
+  height:40px;
+}
+.liner1 button
+{
+  padding:8px;
+}
+.liner2 button
+{
+  padding:8px;
+}
+.liner3 button
+{
+  padding:8px;
+}
+.liner4 button
+{
+  padding:8px;
 }
 
 }
