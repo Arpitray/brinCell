@@ -912,7 +912,7 @@ input:hover, textarea:hover {
 {
   width:8%;
   position: absolute;
-  top:80%;
+  top:82%;
   height:12%;
   left:8%;
 
@@ -1111,6 +1111,10 @@ header{
   .syn_left 
   {
     width: 80vw;
+  }
+  .footer-follower
+  {
+    display: none;
   }
   
 
