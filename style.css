@@ -421,6 +421,7 @@ button:hover {
 
 .liner4 {
   margin-top: 4%;
+  text-align: center;
 }
 
 
@@ -428,7 +429,7 @@ button:hover {
   /* text-align: center; */
   margin-top: 4%;
   width: 100%;
-  margin-left: 260px;
+  /* margin-left: 260px; */
 }
 
 .box-contain {
@@ -1286,6 +1287,7 @@ text-align: center;
 .liner4 button
 {
   padding:8px;
+  text-align: center;
 }
 .footSite{
   display: flex;
