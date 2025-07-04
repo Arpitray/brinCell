@@ -1,70 +1,35 @@
-🔬 Visions – 3D Human Anatomy Web Explorer
-🌐 Live Site → arpitray.github.io/visions
+# 🔬 Visions – 3D Human Anatomy Web Explorer
 
-Visions is a fully immersive web-based 3D anatomy explorer that allows users to interact with realistic human organs right from their browser. Dive into the complexity of the human body in a visually rich, interactive experience powered purely by HTML, CSS, and JavaScript.
+🌐 **Live Site:** [arpitray.github.io/visions](https://arpitray.github.io/visions)
 
-🧠 What This Project Offers
-🫀 Interactive 3D Organs
-Users can explore human organs like the brain, heart, and lungs with full 3D rotation and perspective, offering a hands-on anatomical learning experience.
+**Visions** is a visually immersive and fully interactive web-based 3D anatomy explorer that enables users to explore realistic human organs right in their browser. Designed with the power of **pure HTML, CSS, and JavaScript**, this project transforms anatomical learning into a stunning visual experience — no frameworks, no bloat.
 
-🧭 Mouse-Controlled Exploration
-Click, drag, and orbit around organs to understand their spatial structure like never before — all with simple and intuitive cursor controls.
+---
 
-📱 Responsive Design
-The interface adjusts to desktops, tablets, and mobiles — maintaining usability and aesthetics on every screen size.
+## 🧠 Key Highlights
 
-⚙️ Pure Web Tech
-No React, no frameworks — built entirely with vanilla JavaScript, CSS, and HTML. Fast, lightweight, and framework-free.
+### 🫀 Interactive 3D Organs  
+Explore organs like the **brain**, **heart**, **lungs**, and more — all in rotatable, zoomable, real-time 3D models. Every organ is crafted to help users understand its structure and orientation in the human body.
 
-📸 Preview
-(Include screenshots here if you'd like)
-e.g.
+### 🧭 Mouse-Controlled Exploration  
+Simply click and drag to orbit around each organ. This intuitive control system gives users the power to **freely explore** and inspect every detail from all angles.
 
-🚀 How to Run Locally
-Clone the repository
+### 📱 Responsive Design  
+Visions works beautifully across **desktops, tablets, and smartphones**. The layout adapts seamlessly to different screen sizes to maintain functionality and visual clarity.
 
-bash
-Copy
-Edit
+### ⚙️ Pure Web Technology  
+Built with **vanilla JavaScript, HTML, and CSS** — no React, no WebGL libraries, no build tools. Just clean, fast-loading code running straight from the browser.
+
+---
+
+## 📸 Preview
+
+> _Include screenshots or GIF demos here to showcase the interface and interaction._
+
+---
+
+## 🚀 How to Run Locally
+
+```bash
 git clone https://github.com/arpitray/visions.git
 cd visions
-Open the project
-
-Just open index.html in any modern browser (Chrome, Firefox, Edge)
-
-No build step or installation needed!
-
-📁 Project Structure
-graphql
-Copy
-Edit
-visions/
-├── index.html           # Main HTML structure
-├── style.css            # Styling & responsive layout
-├── script.js            # Main JavaScript logic for interactivity
-├── assets/              # 3D models and media files
-└── readme.md            # Project documentation
-🎯 Features to Highlight
-🌟 Real-time 3D model rendering
-
-📦 Efficient file structure
-
-🧩 Expandable – new organs can be added easily
-
-🧪 Educational use case for biology/anatomy students
-
-🖱️ Smooth UI — basic transitions, hover effects, and controls
-
-💡 Future Ideas
-Add tooltips or info panels per organ
-
-Integrate sound or heartbeat animation
-
-Support multiple anatomical systems (skeletal, nervous, etc.)
-
-Add quiz or test mode for learners
-
-🙌 Creator
-Built with ❤️ by Arpit Ray
-
-GitHub: @arpitray
