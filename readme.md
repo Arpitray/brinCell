@@ -43,9 +43,8 @@ visions/
 ├── style.css            # Styling & responsive layout
 ├── script.js            # Main JavaScript logic for interactivity
 ├── assets/              # 3D models and media files
-└── README.md            # Project documentation
-
- Features to Highlight
+└── readme.md            # Project documentation
+🎯 Features to Highlight
 🌟 Real-time 3D model rendering
 
 📦 Efficient file structure
