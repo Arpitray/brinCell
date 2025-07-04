@@ -22,14 +22,50 @@ Built with **vanilla JavaScript, HTML, and CSS** — no React, no WebGL librarie
 
 ---
 
-## 📸 Preview
-
-> _Include screenshots or GIF demos here to showcase the interface and interaction._
-
----
 
 ## 🚀 How to Run Locally
 
 ```bash
 git clone https://github.com/arpitray/visions.git
 cd visions
+Then simply open index.html in your browser.
+✅ No build steps
+✅ No installs
+✅ Works instantly
+
+📁 Project Structure
+graphql
+Copy
+Edit
+visions/
+├── index.html           # Main HTML structure
+├── style.css            # All styling and responsiveness
+├── script.js            # JavaScript logic and interactivity
+├── assets/              # 3D models, images, and textures
+└── readme.md            # You're reading it!
+🎯 Noteworthy Features
+🌟 Real-time 3D model rendering for hands-on anatomical exploration
+
+📦 Organized and efficient file structure
+
+🧩 Expandable design – new organs or systems can be added easily
+
+🧪 Designed for educational use — ideal for biology students or medical presentations
+
+🖱️ Smooth UI — hover effects, transitions, and intuitive controls
+
+🌱 Future Enhancements
+🏷️ Add tooltips and interactive info pop-ups for each organ
+
+🎧 Integrate sound effects or animations (e.g., beating heart, breathing lungs)
+
+🦴 Expand to include skeletal, muscular, and nervous systems
+
+🧠 Add quiz mode to test anatomy knowledge
+
+🙌 Creator
+Built with ❤️ by Arpit Ray
+
+🔗 GitHub @arpitray
+
+📫 Feel free to contribute or reach out with feedback or ideas!
