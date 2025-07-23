@@ -967,4 +967,7 @@ boneImg.onload = () => {
       toast.classList.remove("show");
     }, 3000);
   });
+  (function () {
+    const locomotiveScroll = new LocomotiveScroll();
+})();
   
